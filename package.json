@@ -1,0 +1,20 @@
+{
+  "name": "mahjong-quickstart",
+  "version": "1.0.0",
+  "description": "A really, really simple tutorial for a mahjong beginner.",
+  "main": "deck.mdx",
+  "dependencies": {
+    "@tabler/icons": "^1.39.1",
+    "react-rough": "^2.3.0",
+    "roughjs": "^4.3.1"
+  },
+  "devDependencies": {
+    "mdx-deck": "^4.1.1"
+  },
+  "scripts": {
+    "start": "mdx-deck --no-open deck.mdx",
+    "build": "mdx-deck build --no-open deck.mdx"
+  },
+  "author": "Nesswit",
+  "license": "MIT"
+}

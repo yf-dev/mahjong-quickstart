@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
+
+.icon-tabler {
+    vertical-align: middle;
+}
+
+img.emote {
+    width: auto;
+    height: auto;
+}
+
+img.tile {
+    display: inline-block;
+    width: 5vw;
+    min-width: 2rem;
+    max-width: 5rem;
+    height: auto;
+}
+
+.hanja {
+    font-family: "Noto Serif TC", serif;
+}

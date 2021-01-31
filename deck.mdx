@@ -1,0 +1,688 @@
+import './style.css';
+import {
+  IconBrandTwitch,
+  IconCircleCheck,
+  IconCircleX,
+  IconChevronRight,
+  IconArrowBigDown,
+  IconBulb,
+} from '@tabler/icons';
+
+export const whiteColor = '#ffffff';
+export const blackColor = '#000000';
+export const textColor = blackColor;
+export const twitchColor = '#9146ff';
+export const highlightColor = '#ff4242';
+export const goodColor = '#62d162';
+export const badColor = '#e84b31';
+
+export const theme = {
+  fonts: {
+    body: '"KyoboHand", cursive',
+  },
+  colors: {
+    text: textColor,
+    background: whiteColor,
+  },
+  styles: {
+    root: {
+      textAlign: 'center',
+      fontSize: '16px',
+      wordBreak: 'keep-all',
+    },
+    Slide: {
+      padding: '1em',
+    },
+    ul: {
+      paddingInlineStart: '0'
+    },
+    li: {
+      listStyle: 'none',
+    },
+    table: {
+      borderSpacing: 0,
+      borderCollapse: 'collapse',
+    },
+  },
+};
+
+export const Highlight = ({children}) => (
+  <span style={{color: highlightColor}}>{children}</span>
+);
+
+export function resolveImage(src) {
+  return require(`./images/${src}`);
+};
+
+export const LocalImage = ({src, ...props}) => (
+  <img
+    src={resolveImage(src)}
+    {...props}
+  />
+);
+
+export const Emote = ({name, ...props}) => (
+  <LocalImage
+    className='emote'
+    src={`emotes/${name}.png`}
+    {...props}
+  />
+);
+
+export const Tile = ({name, ...props}) => (
+  <LocalImage
+    className='tile'
+    src={`tiles/${name}.png`}
+    {...props}
+  />
+);
+
+<!-- 여기서부터 내용 시작 -->
+
+<h2 style={{marginBottom: '0.5rem'}}>지금 <Highlight>당장</Highlight> 마작을 해보고 싶은 당신을 위한</h2>
+<h1 style={{marginTop: '0.5rem'}}>초간단 마작 튜토리얼</h1>
+
+<Emote name='aha'/>
+
+오른쪽 방향키를 눌러주세요
+
+<p style={{
+  fontSize: '1.2rem',
+  textAlign: 'right'
+  }}>
+  2021년에 <a style={{
+      color: twitchColor,
+      textDecoration: 'none',
+    }}
+    target='_blank'
+    href='https://www.twitch.tv/sleeping_ce'>
+    <IconBrandTwitch
+      size={24}
+      color={twitchColor}
+      stroke={1.5}
+      style={{
+        marginRight: '0.1rem',
+      }}
+    />잠자는꼬마선충
+  </a>이 친구들을 위해 만듬
+</p>
+
+---
+
+## 누구를 위한 튜토리얼?
+
+<Emote name='donno'/>
+
+<Steps>
+
+- <IconCircleCheck size={28} color={goodColor} stroke={2}/> 아는 사람이 마작을 하는데 재밌어 보여요.
+- <IconCircleX size={28} color={goodColor} stroke={2}/> 지금 당장 같이 해보고 싶은데, 마작 하는 법을 몰라요.
+
+- <IconCircleX size={28} color={badColor} stroke={2}/> 마작을 할줄은 아는데 더 잘하고 싶어요.
+- <IconCircleX size={28} color={badColor} stroke={2}/> 온라인이 아니라 오프라인 마작을 해보고 싶어요.
+
+</Steps>
+
+---
+
+## 이 튜토리얼의 특징
+
+<Emote name='like'/>
+
+<Steps>
+
+- <IconChevronRight size={28} color={textColor} stroke={2}/> <Highlight>최대한 빠르게</Highlight> 가르쳐준다
+- <IconChevronRight size={28} color={textColor} stroke={2}/> 컴퓨터가 알아서 해주는 <Highlight>복잡한 부분은 생략</Highlight>한다
+- <IconChevronRight size={28} color={textColor} stroke={2}/> 약간 부정확하더라도 <Highlight>이해하기 쉽게</Highlight> 설명한다
+
+</Steps>
+
+<Notes>
+
+- 더 자세한 내용은 나중에 다른 튜토리얼이나 설명을 찾아보세요.
+
+</Notes>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}><Highlight>제 1 부</Highlight></h2>
+<h1 style={{marginTop: '0.5rem'}}>이것만 알면 일단 플레이는 가능함</h1>
+
+<Emote name='nom'/>
+
+---
+
+## 대략적인 게임 흐름
+
+4명이서 동일한 점수를 가지고 시작
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- ① 각자 손패를 13장씩 받음
+- ② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림
+- ③ 다른 사람보다 빠르게 손패를 특정 형태로 완성
+- ④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+(①~④을 8번쯤 반복)
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+최종 점수대로 등수 결정
+
+---
+
+## 대략적인 게임 흐름
+
+<p><Highlight>4명이서 동일한 점수를 가지고 시작</Highlight></p>
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- ① 각자 손패를 13장씩 받음
+- ② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림
+- ③ 다른 사람보다 빠르게 손패를 특정 형태로 완성
+- ④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+(①~④을 8번쯤 반복)
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+최종 점수대로 등수 결정
+
+---
+
+## 대략적인 게임 흐름
+
+4명이서 동일한 점수를 가지고 시작
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- <Highlight>① 각자 손패를 13장씩 받음</Highlight>
+- ② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림
+- ③ 다른 사람보다 빠르게 손패를 특정 형태로 완성
+- ④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+(①~④을 8번쯤 반복)
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+최종 점수대로 등수 결정
+
+---
+
+## 대략적인 게임 흐름
+
+4명이서 동일한 점수를 가지고 시작
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- ① 각자 손패를 13장씩 받음
+- <Highlight>② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림</Highlight>
+- ③ 다른 사람보다 빠르게 손패를 특정 형태로 완성
+- ④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+(①~④을 8번쯤 반복)
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+최종 점수대로 등수 결정
+
+---
+
+## 대략적인 게임 흐름
+
+4명이서 동일한 점수를 가지고 시작
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- ① 각자 손패를 13장씩 받음
+- ② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림
+- <Highlight>③ 다른 사람보다 빠르게 손패를 특정 형태로 완성</Highlight>
+- ④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+(①~④을 8번쯤 반복)
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+최종 점수대로 등수 결정
+
+---
+
+## 대략적인 게임 흐름
+
+4명이서 동일한 점수를 가지고 시작
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- ① 각자 손패를 13장씩 받음
+- ② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림
+- ③ 다른 사람보다 빠르게 손패를 특정 형태로 완성
+- <Highlight>④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감</Highlight>
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+(①~④을 8번쯤 반복)
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+최종 점수대로 등수 결정
+
+---
+
+## 대략적인 게임 흐름
+
+4명이서 동일한 점수를 가지고 시작
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- ① 각자 손패를 13장씩 받음
+- ② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림
+- ③ 다른 사람보다 빠르게 손패를 특정 형태로 완성
+- ④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+<p><Highlight>(①~④을 8번쯤 반복)</Highlight></p>
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+최종 점수대로 등수 결정
+
+---
+
+## 대략적인 게임 흐름
+
+4명이서 동일한 점수를 가지고 시작
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+- ① 각자 손패를 13장씩 받음
+- ② 자기 차례가 오면 패를 한장 뽑아오고, 필요없는 패를 다시 바닥에 버림
+- ③ 다른 사람보다 빠르게 손패를 특정 형태로 완성
+- ④ 손패의 점수만큼 다른 사람한테 점수를 뺏어오고 다음 판으로 넘어감
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+(①~④을 8번쯤 반복)
+
+<IconArrowBigDown size={36} color={highlightColor} stroke={2}/>
+
+<p><Highlight>최종 점수대로 등수 결정</Highlight></p>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>마작의 진행</h2>
+<h3 style={{marginTop: '0.5rem'}}>손패가 뭐지?</h3>
+
+각 플레이어마다 들고있는 자기 패 (13장)
+
+<div>
+  <Tile name='2m'/>
+  <Tile name='5m'/>
+  <Tile name='7m'/>
+  <Tile name='8m'/>
+  <Tile name='5p'/>
+  <Tile name='5p'/>
+  <Tile name='8p'/>
+  <Tile name='1s'/>
+  <Tile name='2s'/>
+  <Tile name='3s'/>
+  <Tile name='3s'/>
+  <Tile name='1z'/>
+  <Tile name='4z'/>
+</div>
+
+자기 차례가 오면 <Highlight>패산</Highlight>에서 한 장을 뽑아오고,  
+필요 없는 패 한 장을 자기 앞 바닥에 버림
+
+**<IconBulb size={36} color={highlightColor} stroke={2}/> <Highlight>"역"</Highlight>이라고 부르는 특수한 형태를 만드는 것이 목표!**
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>마작의 진행</h2>
+<h3 style={{marginTop: '0.5rem'}}>화료가 뭐지?</h3>
+
+**<Highlight>역</Highlight>을 완성하여 승리하는 것**을 말함
+
+<div>
+  <Tile name='2m'/>
+  <Tile name='3m'/>
+  <Tile name='4m'/>
+  <Tile name='3p'/>
+  <Tile name='4p'/>
+  <Tile name='5p'/>
+  <Tile name='8p'/>
+  <Tile name='8p'/>
+  <Tile name='2s'/>
+  <Tile name='3s'/>
+  <Tile name='4s'/>
+  <Tile name='6s'/>
+  <Tile name='7s'/>
+
+  <Tile name='8s' style={{marginLeft: '1rem'}}/>
+</div>
+
+- 내 차례에 <Highlight>내가 뽑아온 패</Highlight>로 완성했을 때: <strong>쯔모</strong> 화료
+- <Highlight>다른 플레이어가 버린 패</Highlight>로 완성했을 때: <strong>론</strong> 화료
+
+<Emote name='ready'/>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>마작의 진행</h2>
+<h3 style={{marginTop: '0.5rem'}}>몇번 해야 끝나지?</h3>
+
+각 경기를 마작에서는 <Highlight>"국"</Highlight>이라고 부름
+
+export const matchCountTdStyle = {
+  padding: '0.5rem 1rem',
+};
+
+<table>
+  <tr>
+    <td colSpan={4} style={{
+      borderBottomWidth: '0.15rem',
+      borderBottomStyle: 'solid',
+      borderBottomColor: textColor,
+      ...matchCountTdStyle
+    }}>동장</td>
+    <td colSpan={4} style={{
+      borderBottomWidth: '0.15rem',
+      borderBottomStyle: 'solid',
+      borderBottomColor: textColor,
+      ...matchCountTdStyle
+    }}>남장</td>
+  </tr>
+  <tr>
+    <td style={matchCountTdStyle}>동1국</td>
+    <td style={matchCountTdStyle}>동2국</td>
+    <td style={matchCountTdStyle}>동3국</td>
+    <td style={matchCountTdStyle}>동4국</td>
+    <td style={matchCountTdStyle}>남1국</td>
+    <td style={matchCountTdStyle}>남2국</td>
+    <td style={matchCountTdStyle}>남3국</td>
+    <td style={matchCountTdStyle}>남4국</td>
+  </tr>
+</table>
+
+**<Highlight>동1국 ~ 남4국</Highlight>까지 총 <Highlight>8국</Highlight>을 하면 끝**!
+
+<Emote name='wow'/>
+
+---
+
+## 화료 하는 법?
+
+<Emote name='o_o'/>
+
+...대충 어떻게 흘러가는지는 알겠는데,  
+어떻게 해야 <Highlight>화료</Highlight>를 할 수 있을까?
+
+**<IconChevronRight size={36} color={textColor} stroke={2}/> <Highlight>패의 종류</Highlight>를 배우고, <Highlight>손패를 완성하는 법</Highlight>을 배우자!**
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
+<h3 style={{marginTop: '0.5rem'}}>수패와 자패</h3>
+
+export const tileCategoryTdStyle = {
+  padding: '1rem 2rem',
+};
+
+<table>
+  <tr>
+    <td style={tileCategoryTdStyle}><strong>수패</strong></td>
+    <td style={tileCategoryTdStyle}><strong>자패</strong></td>
+  </tr>
+  <tr>
+    <td style={tileCategoryTdStyle}>
+      <div>
+        <Tile name='1m'/>
+        <Tile name='2m'/>
+        <Tile name='3m'/>
+        <Tile name='4m'/>
+        <Tile name='5m'/>
+        <Tile name='6m'/>
+        <Tile name='7m'/>
+        <Tile name='8m'/>
+        <Tile name='9m'/>
+      </div>
+      <div>
+        <Tile name='1p'/>
+        <Tile name='2p'/>
+        <Tile name='3p'/>
+        <Tile name='4p'/>
+        <Tile name='5p'/>
+        <Tile name='6p'/>
+        <Tile name='7p'/>
+        <Tile name='8p'/>
+        <Tile name='9p'/>
+      </div>
+      <div>
+        <Tile name='1s'/>
+        <Tile name='2s'/>
+        <Tile name='3s'/>
+        <Tile name='4s'/>
+        <Tile name='5s'/>
+        <Tile name='6s'/>
+        <Tile name='7s'/>
+        <Tile name='8s'/>
+        <Tile name='9s'/>
+      </div>
+    </td>
+    <td style={tileCategoryTdStyle}>
+      <div>
+        <Tile name='1z'/>
+        <Tile name='2z'/>
+        <Tile name='3z'/>
+        <Tile name='4z'/>
+      </div>
+      <div>
+        <Tile name='5z'/>
+        <Tile name='6z'/>
+        <Tile name='7z'/>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCategoryTdStyle}><Highlight>숫자</Highlight>가 있는 패</td>
+    <td style={tileCategoryTdStyle}>숫자가 없는 <Highlight>글자</Highlight> 패</td>
+  </tr>
+</table>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
+<h3 style={{marginTop: '0.5rem'}}>만수패</h3>
+
+<div>
+  <Tile name='1m'/>
+  <Tile name='2m'/>
+  <Tile name='3m'/>
+  <Tile name='4m'/>
+  <Tile name='5m'/>
+  <Tile name='6m'/>
+  <Tile name='7m'/>
+  <Tile name='8m'/>
+  <Tile name='9m'/>
+  <Tile name='0m' style={{marginLeft: '1rem'}}/>
+</div>
+
+- <Highlight>일만 만(<span className='hanja'>萬</span>)</Highlight>자가 그려져 있는 수패
+- 한자로 숫자가 써있음
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
+<h3 style={{marginTop: '0.5rem'}}>통수패</h3>
+
+<div>
+  <Tile name='1p'/>
+  <Tile name='2p'/>
+  <Tile name='3p'/>
+  <Tile name='4p'/>
+  <Tile name='5p'/>
+  <Tile name='6p'/>
+  <Tile name='7p'/>
+  <Tile name='8p'/>
+  <Tile name='9p'/>
+  <Tile name='0p' style={{marginLeft: '1rem'}}/>
+</div>
+
+- <Highlight>동그란 문양</Highlight>이 그려져 있는 수패
+- 문양의 갯수로 숫자를 나타냄
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
+<h3 style={{marginTop: '0.5rem'}}>삭수패</h3>
+
+<div>
+  <Tile name='1s'/>
+  <Tile name='2s'/>
+  <Tile name='3s'/>
+  <Tile name='4s'/>
+  <Tile name='5s'/>
+  <Tile name='6s'/>
+  <Tile name='7s'/>
+  <Tile name='8s'/>
+  <Tile name='9s'/>
+  <Tile name='0s' style={{marginLeft: '1rem'}}/>
+</div>
+
+- <Highlight>대나무 모양</Highlight>이 그려져 있는 수패
+- 대나무 갯수로 숫자를 나타냄
+- 1삭은 새 모양이지만 아무튼 삭수패임
+- 8삭도 아무튼 대나무 8개임
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
+<h3 style={{marginTop: '0.5rem'}}>풍패</h3>
+
+<div>
+  <Tile name='1z'/>
+  <Tile name='2z'/>
+  <Tile name='3z'/>
+  <Tile name='4z'/>
+</div>
+
+- <Highlight>동남서북</Highlight>이 그려져 있는 자패
+- 바람의 방향을 나타낸다고 함
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
+<h3 style={{marginTop: '0.5rem'}}>삼원패</h3>
+
+<div>
+  <Tile name='5z'/>
+  <Tile name='6z'/>
+  <Tile name='7z'/>
+</div>
+
+- <Highlight>흰 백(<span className='hanja'>白</span>), 필 발(<span className='hanja'>發</span>) 가운데 중(<span className='hanja'>中</span>)</Highlight>이 그려져 있는 자패
+- 백패는 아무것도 안 그려져 있지만 아무튼 백패임
+
+---
+
+## 화료 하는 법 - 패의 종류
+
+- 수패/자패
+- 만수패/통수패/삭수패
+- 풍패/삼원패
+- 갯수
+
+<!--
+- 삼원패 읽는법
+- 삭1은 왜 새임?
+- 빨간애들은 뭐임?
+- 반짝이는건 뭐임?
+- 아무것도 안그려진 패는 뭐임?
+- 동남서북 순서?
+- 왜 자패로는 슌쯔가 안됨?
+- 만수패 한자 못읽겠음
+-->
+
+---
+
+## 화료 하는 법 - 손패 완성하기
+
+- 머리와 몸통
+- 머리란?
+- 몸통이란?
+  - 슌쯔
+  - 커쯔
+
+---
+
+## 화료 하는 법 - 텐파이와 리치
+
+- 텐파이
+- 리치
+
+---
+
+## 1부 끝!
+
+- 리치, 쯔모, 론 말고 다른 버튼은 누르지 마세요
+- 작혼 하세요
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}><Highlight>제 2 부</Highlight></h2>
+<h1 style={{marginTop: '0.5rem'}}>이 정도는 알아야 마작을 그럭저럭 즐길 수 있음</h1>
+
+---
+
+## 울기
+
+- 치, 펑, 깡이 뭔데?
+- 울면 리치 불가능
+- 참고: 유국 버튼은 머임???
+
+<!--
+- 왜 내 순서 안옴?
+-->
+
+---
+
+## 마작의 역
+
+- 역이 뭐임?
+- 삼원패/자풍패/장풍패
+- 탕야오
+- 또이또이
+- 나머지는 심심하면 하나씩 보세요
+
+---
+
+## 화료의 조건
+
+- 역없음
+- 후리텐
+
+---
+
+## 2부 끝!
+
+- 나중에 배울 것
+  - 다른 역들
+  - 도라
+  - 점수 계산
+  - 기타등등...
+
+---
+
+## 참고
+
+- 모든 이미지 리소스는 "작혼" 게임에서 발췌
