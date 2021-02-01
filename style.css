@@ -17,12 +17,23 @@ img.emote {
 
 img.tile {
     display: inline-block;
-    width: 5vw;
+    width: 4vw;
     min-width: 2rem;
-    max-width: 5rem;
+    max-width: 4rem;
     height: auto;
 }
 
 .hanja {
     font-family: "Noto Serif TC", serif;
+}
+
+.unblur-hover {
+    filter: blur(0.2rem);
+    opacity: 0.2;
+    transition: 0.2s;
+}
+
+.unblur-hover:hover {
+    filter: none;
+    opacity: 1;
 }

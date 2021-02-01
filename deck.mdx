@@ -6,6 +6,8 @@ import {
   IconChevronRight,
   IconArrowBigDown,
   IconBulb,
+  IconAlertTriangle,
+  IconGift,
 } from '@tabler/icons';
 
 export const whiteColor = '#ffffff';
@@ -32,7 +34,13 @@ export const theme = {
       wordBreak: 'keep-all',
     },
     Slide: {
-      padding: '1em',
+      padding: '1rem',
+    },
+    a: {
+      textDecoration: 'none',
+    },
+    h2: {
+      marginTop: '1rem',
     },
     ul: {
       paddingInlineStart: '0'
@@ -57,24 +65,24 @@ export function resolveImage(src) {
 
 export const LocalImage = ({src, ...props}) => (
   <img
-    src={resolveImage(src)}
     {...props}
+    src={resolveImage(src)}
   />
 );
 
 export const Emote = ({name, ...props}) => (
   <LocalImage
-    className='emote'
-    src={`emotes/${name}.png`}
     {...props}
+    className={`emote ${ props.className }`}
+    src={`emotes/${name}.png`}
   />
 );
 
 export const Tile = ({name, ...props}) => (
   <LocalImage
-    className='tile'
-    src={`tiles/${name}.png`}
     {...props}
+    className={`tile ${ props.className }`}
+    src={`tiles/${name}.png`}
   />
 );
 
@@ -93,7 +101,6 @@ export const Tile = ({name, ...props}) => (
   }}>
   2021년에 <a style={{
       color: twitchColor,
-      textDecoration: 'none',
     }}
     target='_blank'
     href='https://www.twitch.tv/sleeping_ce'>
@@ -381,7 +388,7 @@ export const Tile = ({name, ...props}) => (
 - 내 차례에 <Highlight>내가 뽑아온 패</Highlight>로 완성했을 때: <strong>쯔모</strong> 화료
 - <Highlight>다른 플레이어가 버린 패</Highlight>로 완성했을 때: <strong>론</strong> 화료
 
-<Emote name='ready'/>
+<Emote name='tsumo'/>
 
 ---
 
@@ -1021,17 +1028,266 @@ export const tileCollectionTdStyle = {
 
 ---
 
-## 화료 하는 법 - 텐파이와 리치
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
 
-- 텐파이
-- 리치
+<p>
+  13장의 손패를 잘 모아서<br/>
+  앞으로 <Highlight>패 한장만 더 있으면 완성할 수 있는 상태</Highlight>를<br/>
+  <Highlight><strong>"텐파이"</strong></Highlight> 라고 부름
+</p>
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='7m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='3p' className="unblur-hover"/>
+      <Tile name='4p'/>
+      <Tile name='5p'/>
+      <Tile name='6p' className="unblur-hover"/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='8m'/>
+      <Tile name='9m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>머리</strong>
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>몸통(슌쯔)</strong><br/>이 될 예정
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>몸통(슌쯔)</strong>
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>몸통(커쯔)</strong>
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>몸통(커쯔)</strong>
+    </td>
+  </tr>
+</table>
+
+<table style={{
+  marginTop: '2rem',
+}}>
+  <tr>
+    <td style={{
+      paddingRight: '0.5rem',
+    }}>남은 한장은</td>
+    <td style={{
+      borderBottomWidth: '0.15rem',
+      borderBottomStyle: 'solid',
+      borderBottomColor: highlightColor,
+    }}>패산에서 뽑아오거나</td>
+    <td style={{
+      paddingRight: '0.5rem',
+    }}>,</td>
+    <td style={{
+      borderBottomWidth: '0.15rem',
+      borderBottomStyle: 'solid',
+      borderBottomColor: highlightColor,
+    }}>다른 사람이 버린 패로 완성</td>
+    <td>!</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style={{
+      fontSize: '1.5rem',
+      color: highlightColor,
+    }}>쯔모</td>
+    <td></td>
+    <td style={{
+      fontSize: '1.5rem',
+      color: highlightColor,
+    }}>론</td>
+    <td></td>
+  </tr>
+</table>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
+
+<p>
+  13장의 손패를 잘 모아서<br/>
+  앞으로 <Highlight>패 한장만 더 있으면 완성할 수 있는 상태</Highlight>를<br/>
+  <Highlight><strong>"텐파이"</strong></Highlight> 라고 부름
+</p>
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='7m'/>
+      <Tile name='7m' className="unblur-hover"/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='3p'/>
+      <Tile name='4p'/>
+      <Tile name='5p'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='8m'/>
+      <Tile name='9m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+      <Tile name='6z' className="unblur-hover"/>
+    </td>
+  </tr>
+  <tr>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>머리</strong><br/>몸통?
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>몸통(슌쯔)</strong>
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>몸통(슌쯔)</strong>
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>몸통(커쯔)</strong>
+    </td>
+    <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
+      <strong>머리</strong><br/>몸통?
+    </td>
+  </tr>
+</table>
+
+<table style={{
+  marginTop: '2rem',
+}}>
+  <tr>
+    <td style={{
+      paddingRight: '0.5rem',
+    }}>남은 한장은</td>
+    <td style={{
+      borderBottomWidth: '0.15rem',
+      borderBottomStyle: 'solid',
+      borderBottomColor: highlightColor,
+    }}>패산에서 뽑아오거나</td>
+    <td style={{
+      paddingRight: '0.5rem',
+    }}>,</td>
+    <td style={{
+      borderBottomWidth: '0.15rem',
+      borderBottomStyle: 'solid',
+      borderBottomColor: highlightColor,
+    }}>다른 사람이 버린 패로 완성</td>
+    <td>!</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style={{
+      fontSize: '1.5rem',
+      color: highlightColor,
+    }}>쯔모</td>
+    <td></td>
+    <td style={{
+      fontSize: '1.5rem',
+      color: highlightColor,
+    }}>론</td>
+    <td></td>
+  </tr>
+</table>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
+
+<p>
+  텐파이 했으면 바로 화료할 수 있나요?<br/>
+  <strong><Highlight>"역"</Highlight>이 없으면 화료 불가!</strong>
+</p>
+
+<Emote name='puff'/>
+
+<p>
+  아주 간단한 역이자, 리치 마작의 꽃인<br/>
+  <Highlight>"리치"</Highlight>를 하면 화료 가능!
+</p>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
+
+<p>
+  내 차례에 <strong>텐파이 상태</strong>에서 <Highlight><strong>"리치 선언"</strong></Highlight>을 하면서 패를 버리면 끝<br/>
+  <span style={{fontSize: '1.2rem'}}>(뭐가 더 있긴 한데, 컴퓨터가 알아서 해줄거임)</span>
+</p>
+
+<video autoPlay loop muted style={{maxWidth: '100%', width: '600px'}}>
+  <source src={resolveImage('riichi.mp4')} type="video/mp4"/>
+</video>
+
+<p>
+  <div style={{marginBottom: '1rem'}}>
+    <IconAlertTriangle size={32} color={highlightColor} stroke={2.5}/> <Highlight><strong>주의!</strong></Highlight> <IconAlertTriangle size={32} color={highlightColor} stroke={2.5}/>
+  </div>
+  "리치 선언"을 하면 손패를 바꿀 수 없음<br/>
+  패산에서 뽑은 패로 <Highlight>화료할 수 없으면 그 패를 그대로 버림</Highlight>
+</p>
+
+---
+
+## 리치를 했으면?
+
+<div>
+  <LocalImage src="interfaces/ron.png" style={{display: 'inline-block', width: 'auto', height: 'auto'}}/>
+  <LocalImage src="interfaces/tsumo.png" style={{display: 'inline-block', width: 'auto', height: 'auto'}}/>
+</div>
+
+<p>
+  <Highlight><strong>론</strong></Highlight> 또는 <Highlight><strong>쯔모</strong></Highlight> 버튼 나오면 누르면 끝!<br/>
+  <span style={{fontSize: '1.5rem'}}>기다리는 패가 나올때까지 기도하세요</span>
+</p>
+
+<Emote name='ready'/>
 
 ---
 
 ## 1부 끝!
 
-- 리치, 쯔모, 론 말고 다른 버튼은 누르지 마세요
-- 작혼 하세요
+이정도면 마작을 직접 해볼 수 있어요!  
+
+<Emote name='fighting'/>
+
+기다리고 있는 친구가 있다면, 지금 같이 플레이하셔도 좋아요
+
+<p>
+  <div style={{marginBottom: '1rem'}}>
+    <IconGift size={32} color={textColor} stroke={2.5}/> <strong>뉴비를 위한 마작 꿀팁</strong> <IconGift size={32} color={textColor} stroke={2.5}/>
+  </div>
+  - 리치, 쯔모, 론 말고 <Highlight><strong>다른 버튼은 누르지 마세요!</strong></Highlight><br/>
+  - 온라인 마작 게임은 <Highlight><strong>작혼</strong></Highlight>을 추천해요(<a href='https://mahjongsoul.yo-star.com/' target='_blank' style={{
+    color: textColor,
+  }}>https://mahjongsoul.yo-star.com/</a>)<br/>
+  - <strong>2부 내용도 이어서 봐주세요! 제발!</strong>
+</p>
+
 
 ---
 
