@@ -10,10 +10,11 @@ import {
 
 export const whiteColor = '#ffffff';
 export const blackColor = '#000000';
+export const backgroundColor = whiteColor;
 export const textColor = blackColor;
 export const twitchColor = '#9146ff';
 export const highlightColor = '#ff4242';
-export const goodColor = '#62d162';
+export const goodColor = '#34bd34';
 export const badColor = '#e84b31';
 
 export const theme = {
@@ -22,7 +23,7 @@ export const theme = {
   },
   colors: {
     text: textColor,
-    background: whiteColor,
+    background: backgroundColor,
   },
   styles: {
     root: {
@@ -80,11 +81,11 @@ export const Tile = ({name, ...props}) => (
 <!-- 여기서부터 내용 시작 -->
 
 <h2 style={{marginBottom: '0.5rem'}}>지금 <Highlight>당장</Highlight> 마작을 해보고 싶은 당신을 위한</h2>
-<h1 style={{marginTop: '0.5rem'}}>초간단 마작 튜토리얼</h1>
+<h1 style={{marginTop: '0.5rem'}}>초간단 리치 마작 튜토리얼</h1>
 
 <Emote name='aha'/>
 
-오른쪽 방향키를 눌러주세요
+<!-- 오른쪽 방향키를 눌러주세요 -->
 
 <p style={{
   fontSize: '1.2rem',
@@ -149,6 +150,12 @@ export const Tile = ({name, ...props}) => (
 <h1 style={{marginTop: '0.5rem'}}>이것만 알면 일단 플레이는 가능함</h1>
 
 <Emote name='nom'/>
+
+<Notes>
+
+- 그야말로 지금 당장, 1분 1초라도 빨리 마작을 해야한다면 1부까지만 보고 시작할 수 있음
+
+</Notes>
 
 ---
 
@@ -504,18 +511,32 @@ export const tileCategoryTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
 <h3 style={{marginTop: '0.5rem'}}>만수패</h3>
 
-<div>
-  <Tile name='1m'/>
-  <Tile name='2m'/>
-  <Tile name='3m'/>
-  <Tile name='4m'/>
-  <Tile name='5m'/>
-  <Tile name='6m'/>
-  <Tile name='7m'/>
-  <Tile name='8m'/>
-  <Tile name='9m'/>
-  <Tile name='0m' style={{marginLeft: '1rem'}}/>
-</div>
+<table>
+  <tr>
+    <td><Tile name='1m'/></td>
+    <td><Tile name='2m'/></td>
+    <td><Tile name='3m'/></td>
+    <td><Tile name='4m'/></td>
+    <td><Tile name='5m'/></td>
+    <td><Tile name='6m'/></td>
+    <td><Tile name='7m'/></td>
+    <td><Tile name='8m'/></td>
+    <td><Tile name='9m'/></td>
+    <td style={{paddingLeft: '1rem'}}><Tile name='0m'/></td>
+  </tr>
+  <tr>
+    <td>1만</td>
+    <td>2만</td>
+    <td>3만</td>
+    <td>4만</td>
+    <td>5만</td>
+    <td>6만</td>
+    <td>7만</td>
+    <td>8만</td>
+    <td>9만</td>
+    <td style={{paddingLeft: '1rem'}}>이것도 5만</td>
+  </tr>
+</table>
 
 - <Highlight>일만 만(<span className='hanja'>萬</span>)</Highlight>자가 그려져 있는 수패
 - 한자로 숫자가 써있음
@@ -525,18 +546,32 @@ export const tileCategoryTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
 <h3 style={{marginTop: '0.5rem'}}>통수패</h3>
 
-<div>
-  <Tile name='1p'/>
-  <Tile name='2p'/>
-  <Tile name='3p'/>
-  <Tile name='4p'/>
-  <Tile name='5p'/>
-  <Tile name='6p'/>
-  <Tile name='7p'/>
-  <Tile name='8p'/>
-  <Tile name='9p'/>
-  <Tile name='0p' style={{marginLeft: '1rem'}}/>
-</div>
+<table>
+  <tr>
+    <td><Tile name='1p'/></td>
+    <td><Tile name='2p'/></td>
+    <td><Tile name='3p'/></td>
+    <td><Tile name='4p'/></td>
+    <td><Tile name='5p'/></td>
+    <td><Tile name='6p'/></td>
+    <td><Tile name='7p'/></td>
+    <td><Tile name='8p'/></td>
+    <td><Tile name='9p'/></td>
+    <td style={{paddingLeft: '1rem'}}><Tile name='0p'/></td>
+  </tr>
+  <tr>
+    <td>1통</td>
+    <td>2통</td>
+    <td>3통</td>
+    <td>4통</td>
+    <td>5통</td>
+    <td>6통</td>
+    <td>7통</td>
+    <td>8통</td>
+    <td>9통</td>
+    <td style={{paddingLeft: '1rem'}}>이것도 5통</td>
+  </tr>
+</table>
 
 - <Highlight>동그란 문양</Highlight>이 그려져 있는 수패
 - 문양의 갯수로 숫자를 나타냄
@@ -546,18 +581,32 @@ export const tileCategoryTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
 <h3 style={{marginTop: '0.5rem'}}>삭수패</h3>
 
-<div>
-  <Tile name='1s'/>
-  <Tile name='2s'/>
-  <Tile name='3s'/>
-  <Tile name='4s'/>
-  <Tile name='5s'/>
-  <Tile name='6s'/>
-  <Tile name='7s'/>
-  <Tile name='8s'/>
-  <Tile name='9s'/>
-  <Tile name='0s' style={{marginLeft: '1rem'}}/>
-</div>
+<table>
+  <tr>
+    <td><Tile name='1s'/></td>
+    <td><Tile name='2s'/></td>
+    <td><Tile name='3s'/></td>
+    <td><Tile name='4s'/></td>
+    <td><Tile name='5s'/></td>
+    <td><Tile name='6s'/></td>
+    <td><Tile name='7s'/></td>
+    <td><Tile name='8s'/></td>
+    <td><Tile name='9s'/></td>
+    <td style={{paddingLeft: '1rem'}}><Tile name='0s'/></td>
+  </tr>
+  <tr>
+    <td>1삭</td>
+    <td>2삭</td>
+    <td>3삭</td>
+    <td>4삭</td>
+    <td>5삭</td>
+    <td>6삭</td>
+    <td>7삭</td>
+    <td>8삭</td>
+    <td>9삭</td>
+    <td style={{paddingLeft: '1rem'}}>이것도 5삭</td>
+  </tr>
+</table>
 
 - <Highlight>대나무 모양</Highlight>이 그려져 있는 수패
 - 대나무 갯수로 숫자를 나타냄
@@ -569,12 +618,20 @@ export const tileCategoryTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
 <h3 style={{marginTop: '0.5rem'}}>풍패</h3>
 
-<div>
-  <Tile name='1z'/>
-  <Tile name='2z'/>
-  <Tile name='3z'/>
-  <Tile name='4z'/>
-</div>
+<table>
+  <tr>
+    <td><Tile name='1z'/></td>
+    <td><Tile name='2z'/></td>
+    <td><Tile name='3z'/></td>
+    <td><Tile name='4z'/></td>
+  </tr>
+  <tr>
+    <td>동</td>
+    <td>남</td>
+    <td>서</td>
+    <td>북</td>
+  </tr>
+</table>
 
 - <Highlight>동남서북</Highlight>이 그려져 있는 자패
 - 바람의 방향을 나타낸다고 함
@@ -584,11 +641,18 @@ export const tileCategoryTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
 <h3 style={{marginTop: '0.5rem'}}>삼원패</h3>
 
-<div>
-  <Tile name='5z'/>
-  <Tile name='6z'/>
-  <Tile name='7z'/>
-</div>
+<table>
+  <tr>
+    <td><Tile name='5z'/></td>
+    <td><Tile name='6z'/></td>
+    <td><Tile name='7z'/></td>
+  </tr>
+  <tr>
+    <td>백</td>
+    <td>발</td>
+    <td>중</td>
+  </tr>
+</table>
 
 - <Highlight>흰 백(<span className='hanja'>白</span>), 필 발(<span className='hanja'>發</span>) 가운데 중(<span className='hanja'>中</span>)</Highlight>이 그려져 있는 자패
 - 백패는 아무것도 안 그려져 있지만 아무튼 백패임
@@ -597,31 +661,363 @@ export const tileCategoryTdStyle = {
 
 ## 화료 하는 법 - 패의 종류
 
-- 수패/자패
-- 만수패/통수패/삭수패
-- 풍패/삼원패
-- 갯수
+모든 패는 <Highlight>4장씩</Highlight> 있어서, 총 136장의 패로 게임을 진행
 
-<!--
-- 삼원패 읽는법
-- 삭1은 왜 새임?
-- 빨간애들은 뭐임?
-- 반짝이는건 뭐임?
-- 아무것도 안그려진 패는 뭐임?
-- 동남서북 순서?
-- 왜 자패로는 슌쯔가 안됨?
-- 만수패 한자 못읽겠음
--->
+<div>
+  <Tile name='3m'/>
+  <Tile name='3m'/>
+  <Tile name='3m'/>
+  <Tile name='3m'/>
+
+  <Tile name='5s' style={{marginLeft: '1rem'}}/>
+  <Tile name='5s'/>
+  <Tile name='5s'/>
+  <Tile name='0s'/>
+
+  <Tile name='2z' style={{marginLeft: '1rem'}}/>
+  <Tile name='2z'/>
+  <Tile name='2z'/>
+  <Tile name='2z'/>
+</div>
+
+패 종류 설명 끝!
+
+<Emote name='gooood'/>
 
 ---
 
 ## 화료 하는 법 - 손패 완성하기
 
-- 머리와 몸통
-- 머리란?
-- 몸통이란?
-  - 슌쯔
-  - 커쯔
+<p>
+  마작은 손패로 용 한마리를 만드는 게임<br/>
+  <Highlight>머리 파츠 하나</Highlight>랑 <Highlight>몸통 파츠 4개</Highlight> 모으면 용 완성!
+</p>
+
+export const tileCollectionTdStyle = {
+  padding: '0.5rem 0.5rem',
+};
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='7m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='3p'/>
+      <Tile name='4p'/>
+      <Tile name='5p'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='8m'/>
+      <Tile name='9m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong>머리</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통 1</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통 2</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통 3</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통 4</strong>
+    </td>
+  </tr>
+</table>
+
+...근데 <Highlight>머리</Highlight>가 뭐야? <Highlight>몸통</Highlight>은 또 뭐야?
+
+<Emote name='what'/>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
+<h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>머리</h3>
+
+<p><Highlight>같은 패 2장</Highlight>을 모으면 머리 완성!</p>
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='7m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='1z'/>
+      <Tile name='1z'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='5p'/>
+      <Tile name='0p'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7s'/>
+      <Tile name='8s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='6z'/>
+      <Tile name='7z'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>이건 머리</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>얘도 머리</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>이것도 머리</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>넌 아냐!</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>너도 아냐!</strong>
+    </td>
+  </tr>
+</table>
+
+<Emote name='v'/>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
+<h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>몸통</h3>
+
+몸통은 <Highlight>커쯔</Highlight> 또는 <Highlight>슌쯔</Highlight>로 만들 수 있음
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='6s'/>
+      <Tile name='6s'/>
+      <Tile name='6s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='1m'/>
+      <Tile name='2m'/>
+      <Tile name='3m'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통(커쯔)</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통(슌쯔)</strong>
+    </td>
+  </tr>
+</table>
+
+...<Highlight>커쯔</Highlight>랑 <Highlight>슌쯔</Highlight>가 뭐냐구!!!
+
+<Emote name='flip'/>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
+<h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>몸통(커쯔)</h3>
+
+<p><Highlight>같은 패 3장</Highlight>을 모으면 커쯔!</p>
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='7m'/>
+      <Tile name='7m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='1z'/>
+      <Tile name='1z'/>
+      <Tile name='1z'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='5p'/>
+      <Tile name='5p'/>
+      <Tile name='0p'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>이건 커쯔</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>얘도 커쯔</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>이것도 커쯔</strong>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7s'/>
+      <Tile name='8s'/>
+      <Tile name='9s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='5z'/>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>넌 아냐!</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>너도 아냐!</strong>
+    </td>
+  </tr>
+</table>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
+<h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>몸통(슌쯔)</h3>
+
+<p><Highlight>같은 종류의 수패</Highlight>에서 <Highlight>연속된 숫자로 3장</Highlight>을 모으면 슌쯔!</p>
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='1m'/>
+      <Tile name='2m'/>
+      <Tile name='3m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7p'/>
+      <Tile name='8p'/>
+      <Tile name='9p'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='4s'/>
+      <Tile name='0s'/>
+      <Tile name='6s'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>이건 슌쯔</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>얘도 슌쯔</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: goodColor}}>이것도 슌쯔</strong>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='8p'/>
+      <Tile name='9p'/>
+      <Tile name='1p'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='5z'/>
+      <Tile name='6z'/>
+      <Tile name='7z'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='1m'/>
+      <Tile name='2s'/>
+      <Tile name='3p'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>넌 아냐!</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>너도 아냐!</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>아니라구!</strong>
+    </td>
+  </tr>
+</table>
+
+---
+
+<h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
+<h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>완성...?</h3>
+
+<p><Highlight>1머리 + 4몸통</Highlight>을 손패 13장으로 만들면 되는거지?</p>
+
+<table>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='7m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='3p'/>
+      <Tile name='4p'/>
+      <Tile name='5p'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='7m'/>
+      <Tile name='8m'/>
+      <Tile name='9m'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+      <Tile name='2s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+      <Tile name='6z'/>
+    </td>
+  </tr>
+  <tr>
+    <td style={tileCollectionTdStyle}>
+      <strong>머리</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통(슌쯔)</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통(슌쯔)</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통(커쯔)</strong>
+    </td>
+    <td style={tileCollectionTdStyle}>
+      <strong>몸통(커쯔)</strong>
+    </td>
+  </tr>
+</table>
+
+어...? 완성하려면 14장(2+3+3+3+3) 필요한데?
+
+<h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}><Highlight>한장</Highlight>이 모자라!</h3>
+
+<Emote name='shocked'/>
 
 ---
 
