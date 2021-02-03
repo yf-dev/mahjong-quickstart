@@ -21,6 +21,12 @@ img.tile {
     min-width: 2rem;
     max-width: 4rem;
     height: auto;
+    vertical-align: middle;
+}
+
+img.tile.inline-text {
+    width: 3rem;
+    padding-bottom: 0.5rem;
 }
 
 .hanja {
@@ -37,3 +43,27 @@ img.tile {
     filter: none;
     opacity: 1;
 }
+
+.highlight-text-hover:hover {
+    color: #ff4242;
+}
+
+.indicator-box {
+    border: 5px solid #34bd34;
+    border-radius: 5px;
+    position: absolute;
+    animation-duration: 1s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
