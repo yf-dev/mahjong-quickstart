@@ -66,4 +66,33 @@ img.tile.inline-text {
     to {
         opacity: 1;
     }
-  }
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 0.1rem dotted #ff4242; */
+}
+
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 20rem;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -10rem;
+    background-color: #fffc93;
+    color: #000000;
+    border: 2px solid #f1eb1f;
+    border-radius: 0.3rem;
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}

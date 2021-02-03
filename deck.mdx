@@ -60,6 +60,13 @@ export const Highlight = ({children}) => (
   <span style={{color: highlightColor}}>{children}</span>
 );
 
+export const Tooltip = ({text, children}) => (
+  <div className='tooltip'>
+    {children}
+    <div className='tooltip-text'>{text}</div>
+  </div>
+);
+
 export function resolveImage(src) {
   return require(`./images/${src}`);
 };
@@ -287,7 +294,7 @@ export const matchCountTdStyle = {
 <Emote name='o_o'/>
 
 ...대충 어떻게 흘러가는지는 알겠는데,  
-어떻게 해야 <Highlight>화료</Highlight>를 할 수 있을까?
+어떻게 해야 <Highlight><Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip></Highlight>를 할 수 있을까?
 
 **<IconChevronRight size={36} color={textColor} stroke={2}/> <Highlight>패의 종류</Highlight>를 배우고, <Highlight>손패를 완성하는 법</Highlight>을 배우자!**
 
@@ -393,7 +400,7 @@ export const tileCategoryTdStyle = {
   </tr>
 </table>
 
-- <Highlight>일만 만(<span className='hanja'>萬</span>)</Highlight>자가 그려져 있는 수패
+- <Highlight>일만 만(<span className='hanja'>萬</span>)</Highlight>자가 그려져 있는 <Tooltip text="숫자가 있는 패">수패</Tooltip>
 - 한자로 숫자가 써있음
 
 ---
@@ -428,7 +435,7 @@ export const tileCategoryTdStyle = {
   </tr>
 </table>
 
-- <Highlight>동그란 문양</Highlight>이 그려져 있는 수패
+- <Highlight>동그란 문양</Highlight>이 그려져 있는 <Tooltip text="숫자가 있는 패">수패</Tooltip>
 - 문양의 갯수로 숫자를 나타냄
 
 ---
@@ -463,7 +470,7 @@ export const tileCategoryTdStyle = {
   </tr>
 </table>
 
-- <Highlight>대나무 모양</Highlight>이 그려져 있는 수패
+- <Highlight>대나무 모양</Highlight>이 그려져 있는 <Tooltip text="숫자가 있는 패">수패</Tooltip>
 - 대나무 갯수로 숫자를 나타냄
 - 1삭은 새 모양이지만 아무튼 삭수패임
 - 8삭도 아무튼 대나무 8개임
@@ -488,7 +495,7 @@ export const tileCategoryTdStyle = {
   </tr>
 </table>
 
-- <Highlight>동남서북</Highlight>이 그려져 있는 자패
+- <Highlight>동남서북</Highlight>이 그려져 있는 <Tooltip text="숫자가 없는 글자 패">자패</Tooltip>
 - 바람의 방향을 나타낸다고 함
 
 ---
@@ -509,7 +516,7 @@ export const tileCategoryTdStyle = {
   </tr>
 </table>
 
-- <Highlight>흰 백(<span className='hanja'>白</span>), 필 발(<span className='hanja'>發</span>) 가운데 중(<span className='hanja'>中</span>)</Highlight>이 그려져 있는 자패
+- <Highlight>흰 백(<span className='hanja'>白</span>), 필 발(<span className='hanja'>發</span>) 가운데 중(<span className='hanja'>中</span>)</Highlight>이 그려져 있는 <Tooltip text="숫자가 없는 글자 패">자패</Tooltip>
 - 백패는 아무것도 안 그려져 있지만 아무튼 백패임
 
 ---
@@ -759,7 +766,7 @@ export const tileCollectionTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>몸통(슌쯔)</h3>
 
-<p><Highlight>같은 종류의 수패</Highlight>에서 <Highlight>연속된 숫자로 3장</Highlight>을 모으면 슌쯔!</p>
+<p><Highlight>같은 종류의 <Tooltip text="숫자가 있는 패">수패</Tooltip></Highlight>에서 <Highlight>연속된 숫자로 3장</Highlight>을 모으면 슌쯔!</p>
 
 <table>
   <tr>
@@ -827,7 +834,7 @@ export const tileCollectionTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>완성...?</h3>
 
-<p><Highlight>1머리 + 4몸통</Highlight>을 손패 13장으로 만들면 되는거지?</p>
+<p><Highlight>1<Tooltip text="같은 패 2장">머리</Tooltip> + 4<Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip></Highlight>을 손패 13장으로 만들면 되는거지?</p>
 
 <table>
   <tr>
@@ -858,19 +865,19 @@ export const tileCollectionTdStyle = {
   </tr>
   <tr>
     <td style={tileCollectionTdStyle}>
-      <strong>머리</strong>
+      <strong><Tooltip text="같은 패 2장">머리</Tooltip></strong>
     </td>
     <td style={tileCollectionTdStyle}>
-      <strong>몸통(슌쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip>)</strong>
     </td>
     <td style={tileCollectionTdStyle}>
-      <strong>몸통(슌쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip>)</strong>
     </td>
     <td style={tileCollectionTdStyle}>
-      <strong>몸통(커쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 패 3장">커쯔</Tooltip>)</strong>
     </td>
     <td style={tileCollectionTdStyle}>
-      <strong>몸통(커쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 패 3장">커쯔</Tooltip>)</strong>
     </td>
   </tr>
 </table>
@@ -921,19 +928,19 @@ export const tileCollectionTdStyle = {
   </tr>
   <tr>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>머리</strong>
+      <strong><Tooltip text="같은 패 2장">머리</Tooltip></strong>
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>몸통(슌쯔)</strong><br/>이 될 예정
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip>)</strong><br/>이 될 예정
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>몸통(슌쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 패 3장">커쯔</Tooltip>)</strong>
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>몸통(커쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 패 3장">커쯔</Tooltip>)</strong>
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>몸통(커쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 패 3장">커쯔</Tooltip>)</strong>
     </td>
   </tr>
 </table>
@@ -965,12 +972,12 @@ export const tileCollectionTdStyle = {
     <td style={{
       fontSize: '1.5rem',
       color: highlightColor,
-    }}>쯔모</td>
+    }}><Tooltip text="내 차례에 내가 뽑아온 패로 화료">쯔모</Tooltip></td>
     <td></td>
     <td style={{
       fontSize: '1.5rem',
       color: highlightColor,
-    }}>론</td>
+    }}><Tooltip text="다른 사람이 버린 패로 화료">론</Tooltip></td>
     <td></td>
   </tr>
 </table>
@@ -1015,19 +1022,19 @@ export const tileCollectionTdStyle = {
   </tr>
   <tr>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>머리</strong><br/>몸통?
+      <strong><Tooltip text="같은 패 2장">머리</Tooltip></strong><br/><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>?
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>몸통(슌쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip>)</strong>
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>몸통(슌쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip>)</strong>
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>몸통(커쯔)</strong>
+      <strong><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>(<Tooltip text="같은 패 3장">커쯔</Tooltip>)</strong>
     </td>
     <td style={{...tileCollectionTdStyle, verticalAlign: 'top'}}>
-      <strong>머리</strong><br/>몸통?
+      <strong><Tooltip text="같은 패 2장">머리</Tooltip></strong><br/><Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>?
     </td>
   </tr>
 </table>
@@ -1059,12 +1066,12 @@ export const tileCollectionTdStyle = {
     <td style={{
       fontSize: '1.5rem',
       color: highlightColor,
-    }}>쯔모</td>
+    }}><Tooltip text="내 차례에 내가 뽑아온 패로 화료">쯔모</Tooltip></td>
     <td></td>
     <td style={{
       fontSize: '1.5rem',
       color: highlightColor,
-    }}>론</td>
+    }}><Tooltip text="다른 사람이 버린 패로 화료">론</Tooltip></td>
     <td></td>
   </tr>
 </table>
@@ -1074,15 +1081,15 @@ export const tileCollectionTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
 
 <p>
-  텐파이 했으면 바로 화료할 수 있나요?<br/>
-  <strong><Highlight>"역"</Highlight>이 없으면 화료 불가!</strong>
+  <Tooltip text="손패 완성까지 1장 남은 상태">텐파이</Tooltip> 했으면 바로 <Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip>할 수 있나요?<br/>
+  <strong><Highlight>"역"</Highlight>이 없으면 <Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip> 불가!</strong>
 </p>
 
 <Emote name='puff'/>
 
 <p>
   아주 간단한 역이자, 리치 마작의 꽃인<br/>
-  <Highlight>"리치"</Highlight>를 하면 화료 가능!
+  <Highlight>"리치"</Highlight>를 하면 <Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip> 가능!
 </p>
 
 ---
@@ -1090,7 +1097,7 @@ export const tileCollectionTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
 
 <p>
-  내 차례에 <strong>텐파이 상태</strong>에서 <Highlight><strong>"리치 선언"</strong></Highlight>을 하면서 패를 버리면 끝<br/>
+  내 차례에 <strong><Tooltip text="손패 완성까지 1장 남은 상태">텐파이</Tooltip> 상태</strong>에서 <Highlight><strong>"리치 선언"</strong></Highlight>을 하면서 패를 버리면 끝<br/>
   <span style={{fontSize: '1.2rem'}}>(뭐가 더 있긴 한데, 컴퓨터가 알아서 해줄거임)</span>
 </p>
 
@@ -1103,7 +1110,7 @@ export const tileCollectionTdStyle = {
     <IconAlertTriangle size={32} color={highlightColor} stroke={2.5}/> <Highlight><strong>주의!</strong></Highlight> <IconAlertTriangle size={32} color={highlightColor} stroke={2.5}/>
   </div>
   "리치 선언"을 하면 손패를 바꿀 수 없음<br/>
-  패산에서 뽑은 패로 <Highlight>화료할 수 없으면 그 패를 그대로 버림</Highlight>
+  패산에서 뽑은 패로 <Highlight><Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip>할 수 없으면 그 패를 그대로 버림</Highlight>
 </p>
 
 ---
@@ -1116,7 +1123,7 @@ export const tileCollectionTdStyle = {
 </div>
 
 <p>
-  <Highlight><strong>론</strong></Highlight> 또는 <Highlight><strong>쯔모</strong></Highlight> 버튼 나오면 누르면 끝!<br/>
+  <Highlight><strong><Tooltip text="다른 사람이 버린 패로 화료">론</Tooltip></strong></Highlight> 또는 <Highlight><strong><Tooltip text="내 차례에 내가 뽑아온 패로 화료">쯔모</Tooltip></strong></Highlight> 버튼 나오면 누르면 끝!<br/>
   <span style={{fontSize: '1.5rem'}}>기다리는 패가 나올때까지 기도하세요</span>
 </p>
 
@@ -1136,7 +1143,7 @@ export const tileCollectionTdStyle = {
   <div style={{marginBottom: '1rem'}}>
     <IconGift size={32} color={textColor} stroke={2.5}/> <strong>뉴비를 위한 마작 꿀팁</strong> <IconGift size={32} color={textColor} stroke={2.5}/>
   </div>
-  - 리치, 쯔모, 론 말고 <Highlight><strong>다른 버튼은 누르지 마세요!</strong></Highlight><br/>
+  - <Tooltip text="텐파이 상태에 리치 선언을 하면 성립하는 역 또는 그 선언">리치</Tooltip>, <Tooltip text="내 차례에 내가 뽑아온 패로 화료">쯔모</Tooltip>, <Tooltip text="다른 사람이 버린 패로 화료">론</Tooltip> 말고 <Highlight><strong>다른 버튼은 누르지 마세요!</strong></Highlight><br/>
   - 온라인 마작 게임은 <Highlight><strong>작혼</strong></Highlight>을 추천해요(<a href='https://mahjongsoul.yo-star.com/' target='_blank' style={{
     color: textColor,
   }}>https://mahjongsoul.yo-star.com/</a>)<br/>
@@ -1161,7 +1168,7 @@ export const tileCollectionTdStyle = {
   <LocalImage src="interfaces/kan.png" style={{display: 'inline-block', width: 'auto', height: 'auto'}}/>
 </div>
 
-**다른 사람이 <Highlight>버린 패</Highlight>를 가져와서 몸통을 만드는 것**
+**다른 사람이 <Highlight>버린 패</Highlight>를 가져와서 <Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>을 만드는 것**
 
 ---
 
@@ -1169,8 +1176,8 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>치</h3>
 
 <p>
-  내 <Highlight>왼쪽</Highlight> 사람이 버린패를 가져와서 <Highlight>슌쯔</Highlight>를 만드는 것<br/>
-  완성된 슌쯔는 다른 사람도 볼 수 있게 <Highlight>공개</Highlight><br/>
+  내 <Highlight>왼쪽</Highlight> 사람이 버린패를 가져와서 <Highlight><Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip></Highlight>를 만드는 것<br/>
+  완성된 <Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip>는 다른 사람도 볼 수 있게 <Highlight>공개</Highlight><br/>
   패를 새로 뽑지 않고 <Highlight>패 하나를 버림</Highlight>
 </p>
 
@@ -1178,7 +1185,7 @@ export const tileCollectionTdStyle = {
   <source src={resolveImage('chi.mp4')} type="video/mp4"/>
 </video>
 
-왼쪽 사람이 버린 <Tile className='inline-text' name='1s'/> 를 <Tile className='inline-text' name='2s'/><Tile className='inline-text' name='3s'/> 랑 합쳐 슌쯔 완성!
+왼쪽 사람이 버린 <Tile className='inline-text' name='1s'/> 를 <Tile className='inline-text' name='2s'/><Tile className='inline-text' name='3s'/> 랑 합쳐 <Tooltip text="같은 종류 수패가 연속된 3장">슌쯔</Tooltip> 완성!
 
 ---
 
@@ -1186,8 +1193,8 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>펑</h3>
 
 <p>
-  <Highlight>아무나</Highlight> 버린패를 가져와서 <Highlight>커쯔</Highlight>를 만드는 것<br/>
-  완성된 커쯔는 다른 사람도 볼 수 있게 <Highlight>공개</Highlight><br/>
+  <Highlight>아무나</Highlight> 버린패를 가져와서 <Highlight><Tooltip text="같은 패 3장">커쯔</Tooltip></Highlight>를 만드는 것<br/>
+  완성된 <Tooltip text="같은 패 3장">커쯔</Tooltip>는 다른 사람도 볼 수 있게 <Highlight>공개</Highlight><br/>
   패를 새로 뽑지 않고 <Highlight>패 하나를 버림</Highlight>
 </p>
 
@@ -1195,14 +1202,14 @@ export const tileCollectionTdStyle = {
   <source src={resolveImage('pon.mp4')} type="video/mp4"/>
 </video>
 
-오른쪽 사람이 버린 <Tile className='inline-text' name='4z'/> 를 <Tile className='inline-text' name='4z'/><Tile className='inline-text' name='4z'/> 랑 합쳐 커쯔 완성!
+오른쪽 사람이 버린 <Tile className='inline-text' name='4z'/> 를 <Tile className='inline-text' name='4z'/><Tile className='inline-text' name='4z'/> 랑 합쳐 <Tooltip text="같은 패 3장">커쯔</Tooltip> 완성!
 
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>울기</h2>
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>깡</h3>
 
-**같은 패 <Highlight>4장을 모아 커쯔 취급</Highlight>하는 것**
+**같은 패 <Highlight>4장을 모아 <Tooltip text="같은 패 3장">커쯔</Tooltip> 취급</Highlight>하는 것**
 
 - 3장을 손패에 가지고 다른 사람이 버린패를 가져와서 **깡**
 - 아까 펑 해둔 패가 손패에 있으면 **깡**
@@ -1228,8 +1235,8 @@ export const tileCollectionTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>울기</h2>
 
 <p>
-  <span style={{fontSize: '3rem'}}><strong>울면 <Highlight>리치</Highlight>를 못해요!</strong></span><br/>
-  (리치를 안하면 <Highlight>화료</Highlight>할 수 없음)
+  <span style={{fontSize: '3rem'}}><strong>울면 <Highlight><Tooltip text="텐파이 상태에 리치 선언을 하면 성립하는 역 또는 그 선언">리치</Tooltip></Highlight>를 못해요!</strong></span><br/>
+  (<Tooltip text="텐파이 상태에 리치 선언을 하면 성립하는 역 또는 그 선언">리치</Tooltip>를 안하면 <Highlight><Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip></Highlight>할 수 없음)
 </p>
 
 <Emote name='freeze'/>
@@ -1241,20 +1248,22 @@ export const tileCollectionTdStyle = {
 <h2 style={{marginBottom: '0.5rem'}}>마작의 역</h2>
 
 <p>
-  <Highlight>화료</Highlight>를 하려면 <Highlight>역</Highlight>이 있어야 함<br/>
+  <Highlight><Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip></Highlight>를 하려면 <Highlight>역</Highlight>이 있어야 함<br/>
   <strong>역 = 마작의 점수 계산에 쓰이는 족보</strong>
 </p>
 
 <p>
-  리치도 역 중에 하나임<br/>
-  즉, 리치를 못해도 <Highlight>다른 역이 있으면 화료 가능!</Highlight>
+  <Tooltip text="텐파이 상태에 리치 선언을 하면 성립하는 역 또는 그 선언">리치</Tooltip>도 역 중에 하나임<br/>
+  즉, <Tooltip text="텐파이 상태에 리치 선언을 하면 성립하는 역 또는 그 선언">리치</Tooltip>를 못해도 <Highlight>다른 역이 있으면 <Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip> 가능!</Highlight>
 </p>
 
 <Emote name='drink'/>
 
-<Note>
+<Notes>
+
 다른 역이 있으면 되기는 하는데, 그래도 울지 마라
-</Note>
+
+</Notes>
 
 ---
 
@@ -1262,7 +1271,7 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>탕야오</h3>
 
 <p>
-  수패 2~8 만 가지고 손패 완성하기
+  <Tooltip text="숫자가 있는 패">수패</Tooltip> 2~8 만 가지고 손패 완성하기
 </p>
 
 <div>
@@ -1288,7 +1297,7 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>또이또이</h3>
 
 <p>
-  몸통을 모두 커쯔로 만들고 손패 완성하기
+  <Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>을 모두 <Tooltip text="같은 패 3장">커쯔</Tooltip>로 만들고 손패 완성하기
 </p>
 
 <div>
@@ -1314,7 +1323,7 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>역패: 삼원패</h3>
 
 <p>
-  <Tile className='inline-text' name='5z'/>, <Tile className='inline-text' name='6z'/>, <Tile className='inline-text' name='7z'/> 중에 하나를 커쯔로 만들어 몸통으로 쓰고 손패 완성하기
+  <Tile className='inline-text' name='5z'/>, <Tile className='inline-text' name='6z'/>, <Tile className='inline-text' name='7z'/> 중에 하나를 <Tooltip text="같은 패 3장">커쯔</Tooltip>로 만들어 <Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>으로 쓰고 손패 완성하기
 </p>
 
 <div>
@@ -1340,7 +1349,7 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>역패: 자풍패</h3>
 
 <p>
-  내 방위와 일치하는 풍패를 커쯔로 만들어 몸통으로 쓰고 손패 완성하기
+  내 방위와 일치하는 <Tooltip text="자패 중 동남서북">풍패</Tooltip>를 <Tooltip text="같은 패 3장">커쯔</Tooltip>로 만들어 <Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>으로 쓰고 손패 완성하기
 </p>
 
 <div style={{position: 'relative'}}>
@@ -1376,7 +1385,7 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>역패: 장풍패</h3>
 
 <p>
-  장 방위와 일치하는 풍패를 커쯔로 만들어 몸통으로 쓰고 손패 완성하기
+  장 방위와 일치하는 <Tooltip text="자패 중 동남서북">풍패</Tooltip>를 <Tooltip text="같은 패 3장">커쯔</Tooltip>로 만들어 <Tooltip text="같은 패 3장(커쯔) 또는 같은 종류 수패가 연속된 3장(슌쯔)">몸통</Tooltip>으로 쓰고 손패 완성하기
 </p>
 
 <div style={{position: 'relative'}}>
@@ -1410,7 +1419,7 @@ export const tileCollectionTdStyle = {
 
 <h2 style={{marginBottom: '0.5rem'}}>마작의 역</h2>
 
-그 외에도 역은 아주 많이 있어요!  
+그 외에도 <Tooltip text="마작의 점수 계산에 쓰이는 족보">역</Tooltip>은 아주 많이 있어요!  
 더 궁금하시다면 직접 찾아보세요
 
 <Emote name='sorry'/>
@@ -1431,13 +1440,13 @@ export const tileCollectionTdStyle = {
 마지막으로 이것만 배우고 가세요
 
 <p style={{fontSize: '2.5rem'}}>
-  텐파이 상태에서<br/>
+  <Tooltip text="손패 완성까지 1장 남은 상태">텐파이</Tooltip> 상태에서<br/>
   내 손패를 완성할 수 있는 패중에<br/>
   <Highlight>단 하나라도</Highlight> 내가 버린적이 있으면 후리텐
 </p>
 
 <p>
-  <IconChevronRight size={28} color={textColor} stroke={3}/> <strong>후리텐이면 론으로 화료할 수 없음!</strong>
+  <IconChevronRight size={28} color={textColor} stroke={3}/> <strong>후리텐이면 <Tooltip text="다른 사람이 버린 패로 화료">론</Tooltip>으로 <Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip>할 수 없음!</strong>
 </p>
 
 ---
@@ -1474,7 +1483,7 @@ export const tileCollectionTdStyle = {
   </tr>
 </table>
 
-와! <Tile className='inline-text' name='4m'/>가 나오면 탕야오네!  
+와! <Tile className='inline-text' name='4m'/>가 나오면 <Tooltip text="2~8 수패만 사용하여 손패를 완성하는 역">탕야오</Tooltip>네!  
 근데 <Tile className='inline-text' name='1m'/>을 내가 버렸으면 후리텐...
 
 ---
@@ -1510,7 +1519,7 @@ export const tileCollectionTdStyle = {
   </tr>
 </table>
 
-와! <Tile className='inline-text' name='2m'/>이나 <Tile className='inline-text' name='5m'/>이 나오면 탕야오네!  
+와! <Tile className='inline-text' name='2m'/>이나 <Tile className='inline-text' name='5m'/>이 나오면 <Tooltip text="2~8 수패만 사용하여 손패를 완성하는 역">탕야오</Tooltip>네!  
 근데 <Tile className='inline-text' name='8m'/>을 내가 버렸으면 후리텐...
 
 
@@ -1533,12 +1542,12 @@ export const tileCollectionTdStyle = {
   <table style={{margin: '0 auto'}}>
     <tr>
       <td style={{minWidth: '10rem'}}>
-        다른 역들<br/>
-        도라<br/>
-        유국<br/>
+        다른 <Tooltip text="마작의 점수 계산에 쓰이는 족보">역</Tooltip>들<br/>
+        <Tooltip text="손패에 포함하여 화료할 경우 추가 점수를 주는 패">도라</Tooltip><br/>
+        <Tooltip text="특정 상황에서 발생하는 무승부">유국</Tooltip><br/>
       </td>
       <td style={{minWidth: '10rem'}}>
-        연짱<br/>
+        <Tooltip text="특정 상황에서 발생하는 연장전">연짱</Tooltip><br/>
         점수 계산<br/>
         기타등등...
       </td>
