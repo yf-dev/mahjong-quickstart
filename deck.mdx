@@ -123,17 +123,34 @@ export const Tile = ({name, ...props}) => (
   </a>이 친구들을 위해 만듬
 </p>
 
+<Notes>
+
+지금 당장 마작을 해보고 싶은 바로 당신을 위한 초간단 리치 마작 튜토리얼
+
+</Notes>
+
 ---
 
 ## 누구를 위한 튜토리얼?
 
 <Emote name='donno'/>
 
-- <IconCircleCheck size={28} color={goodColor} stroke={2}/> 아는 사람이 마작을 하는데 재밌어 보여요.
-- <IconCircleCheck size={28} color={goodColor} stroke={2}/> 지금 당장 같이 해보고 싶은데, 마작 하는 법을 몰라요.
+- <IconCircleCheck size={28} color={goodColor} stroke={2}/> 아는 사람이 마작 게임을 하는데 재밌어 보여요
+- <IconCircleCheck size={28} color={goodColor} stroke={2}/> 지금 당장 같이 해보고 싶은데, 마작 하는 법을 몰라요
 
-- <IconCircleX size={28} color={badColor} stroke={2}/> 마작을 할줄은 아는데 더 잘하고 싶어요.
-- <IconCircleX size={28} color={badColor} stroke={2}/> 온라인이 아니라 오프라인 마작을 해보고 싶어요.
+- <IconCircleX size={28} color={badColor} stroke={2}/> 마작을 할줄은 아는데 더 잘하고 싶어요
+- <IconCircleX size={28} color={badColor} stroke={2}/> 온라인이 아니라 오프라인 마작을 해보고 싶어요
+
+<Notes>
+
+이 튜토리얼은 컴퓨터나 스마트폰 게임으로 나온 마작 게임을 처음 입문하고 싶은 사람을 위한 튜토리얼입니다.
+
+아는 사람이 마작 게임을 하는데 재밌어보여서 지금 마작을 같이 해보고 싶다고 생각한 분이라던가,
+마작이 어떻게 돌아가는지 대충이라도 알고 싶으시다면 이 튜토리얼을 보시면 됩니다.
+
+하지만 이미 마작을 할 줄 아신다던가, 오프라인 마작을 하고싶으신 분들은 이 튜토리얼을 보셔도 도움이 되지 않습니다.
+
+</Notes>
 
 ---
 
@@ -147,7 +164,10 @@ export const Tile = ({name, ...props}) => (
 
 <Notes>
 
-- 더 자세한 내용은 나중에 다른 튜토리얼이나 설명을 찾아보세요.
+이 튜토리얼은 여러분이 최대한 빨리 일단 마작을 해볼 수 있게 하는 데에 초점을 두고 설명을 합니다.
+
+따라서, 몰라도 마작을 진행할 수 있는 경우에는 복잡한 규칙은 생략하며,
+꼭 알아야 하는 것은 쉽게 이해할 수 있도록 약간의 거짓말을 섞어서 설명을 할겁니다.
 
 </Notes>
 
@@ -160,7 +180,9 @@ export const Tile = ({name, ...props}) => (
 
 <Notes>
 
-- 그야말로 지금 당장, 1분 1초라도 빨리 마작을 해야한다면 1부까지만 보고 시작할 수 있음
+1부는 정말정말 필수적인 플레이 방법을 설명합니다.
+
+진짜 1분 1초라도 빨리 마작을 해보고 싶으신 분들은 1부까지만 배워도 일단은 괜찮습니다.
 
 </Notes>
 
@@ -187,12 +209,36 @@ export const Tile = ({name, ...props}) => (
 
 <div style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}><span className='highlight-text-hover'>최종 점수대로 등수 결정하면 끝</span></div>
 
+<Notes>
+
+먼저 마작이라는 게임이 어떤 식으로 진행되는지 알아봅시다.
+
+마작은 4명이서 즐기는 게임이고, 최종 점수를 기준으로 등수를 겨루는 게임입니다.
+
+처음 시작은 4명이서 동일한 점수를 가지고 시작합니다.
+
+게임이 시작되면 각자 손패를 나눠 받습니다.
+
+한사람씩 자기 차례가 오면 패를 한장 뽑고, 필요 없는 패를 바닥에 버립니다.
+
+그리고 쭉 돌아가면서 패를 뽑고 버리고 하는 동안
+자기 손패를 다른 사람보다 먼저 특정 형태로 완성하면 그 판에서 이기는겁니다.
+
+이긴 사람은 다른 사람에게 손패의 점수만큼 다른 사람의 점수를 뺏어오고, 다음 판을 진행하게 됩니다.
+
+마작은 한 판으로 등수가 결정되는 게임은 아니고, 이렇게 몇 판 정도 반복해서 진행하게 되고,
+모든 경기가 끝나면 가지고 있는 점수 순서대로 등수를 결정하게 됩니다.
+
+여기까지가 대략적인 게임 흐름이고, 이제 조금 더 자세한 내용에 대해 알아보겠습니다.
+
+</Notes>
+
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>마작의 진행</h2>
 <h3 style={{marginTop: '0.5rem'}}>손패가 뭐지?</h3>
 
-각 플레이어마다 들고있는 자기 패 (13장)
+각 플레이어마다 가지고 있는 자기 패 (13장)
 
 <div>
   <Tile name='2m'/>
@@ -214,6 +260,20 @@ export const Tile = ({name, ...props}) => (
 필요 없는 패 한 장을 자기 앞 바닥에 버림
 
 **<IconBulb size={36} color={highlightColor} stroke={2}/> <Highlight>"역"</Highlight>이라고 부르는 특수한 형태를 만드는 것이 목표!**
+
+<Notes>
+
+방금 마작을 할때 각자 손패를 나눠 받는다고 말씀드렸는데, 손패가 뭘까요?
+
+손패는 각각의 플레이어가 가지고 있는 자기 패입니다.
+
+(패 예시를 가르키며)마작에서는 이런 식으로 각자 13장의 패를 나누어 받고 시작해서,
+자기 차례가 오면 "패산"이라고 부르는 패 더미에서 패를 한 장 뽑아오고,
+필요 없는 패를 자기 앞에 내려놓아 버리게 됩니다.
+
+이렇게 패를 뽑고 버리면서 최종적으로 "역"이라고 부르는 특수한 형태를 만들어야합니다.
+
+</Notes>
 
 ---
 
@@ -244,6 +304,19 @@ export const Tile = ({name, ...props}) => (
 - <Highlight>다른 플레이어가 버린 패</Highlight>로 완성했을 때: <strong>론</strong> 화료
 
 <Emote name='tsumo'/>
+
+<Notes>
+
+이렇게 역이라고 부르는 특수한 형태를 만들게되면 승리할 수 있는데요,
+이렇게 승리하는 것을 마작에서는 "화료"한다고 말합니다.
+
+화료는 크게 두가지 방법으로 할 수 있는데,
+만약 내 차례에 내가 뽑아온 패로 역을 완성했으면 우리는 "쯔모" 화료했다고 말합니다.
+또는, 다른 플레이어가 버린 패로 역을 완성했으면 우리는 "론" 화료했다고 말하죠.
+
+더 간단하게는 각각 "쯔모"했다, "론" 했다고 말합니다.
+
+</Notes>
 
 ---
 
@@ -287,6 +360,22 @@ export const matchCountTdStyle = {
 
 <Emote name='wow'/>
 
+<Notes>
+
+그리고 아까 여러 판을 진행해서 최종 점수로 순위를 정한다고 했는데,
+마작에서는 경기라는 말 대신 "국"이라는 말로 각각의 판을 부릅니다.
+
+마작은 일반적으로 8국을 하면 게임이 종료되는데,
+다른 스포츠 경기와 비슷하게 마작에도 전반전, 후반전 같은 개념이 있습니다.
+
+마작에서는 전반전 후반전을 각각 "동장", "남장"이라고 부릅니다.
+
+그래서 동장전에는 동1국, 동2국, 동3국, 동4국 으로 4개의 국을 진행하고,
+남장전에는 남1국, 남2국, 남3국, 남4국의 4개 국을 진행하여,
+총 동1국부터 남4국까지 8국을 진행하면 게임이 종료됩니다.
+
+</Notes>
+
 ---
 
 ## 화료 하는 법?
@@ -297,6 +386,18 @@ export const matchCountTdStyle = {
 어떻게 해야 <Highlight><Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip></Highlight>를 할 수 있을까?
 
 **<IconChevronRight size={36} color={textColor} stroke={2}/> <Highlight>패의 종류</Highlight>를 배우고, <Highlight>손패를 완성하는 법</Highlight>을 배우자!**
+
+<Notes>
+
+좋아요. 여기까지 왔으면, 대충 어떻게 마작이 진행되는지는 배우신겁니다.
+
+근데, 가장 중요한 화료, 그러니까 승리 하는 법을 아직 우리는 모릅니다.
+
+이제부터 화료 하는 방법에 대해 설명을 드릴껀데,
+먼저 마작에서 사용하는 패의 종류를 배우고,
+마작패를 잘 모아서 손패를 완성하는 방법을 배우는 순서로 설명을 드리겠습니다.
+
+</Notes>
 
 ---
 
@@ -315,50 +416,65 @@ export const tileCategoryTdStyle = {
   <tr>
     <td style={tileCategoryTdStyle}>
       <div>
-        <Tile name='1m'/>
-        <Tile name='2m'/>
-        <Tile name='3m'/>
-        <Tile name='4m'/>
-        <Tile name='5m'/>
-        <Tile name='6m'/>
-        <Tile name='7m'/>
-        <Tile name='8m'/>
-        <Tile name='9m'/>
+        <span style={{width: '5rem', display: 'inline-block'}}>만수패</span>
+        <span style={{marginLeft: '1rem'}}>
+          <Tile name='1m'/>
+          <Tile name='2m'/>
+          <Tile name='3m'/>
+          <Tile name='4m'/>
+          <Tile name='5m'/>
+          <Tile name='6m'/>
+          <Tile name='7m'/>
+          <Tile name='8m'/>
+          <Tile name='9m'/>
+        </span>
       </div>
       <div>
-        <Tile name='1p'/>
-        <Tile name='2p'/>
-        <Tile name='3p'/>
-        <Tile name='4p'/>
-        <Tile name='5p'/>
-        <Tile name='6p'/>
-        <Tile name='7p'/>
-        <Tile name='8p'/>
-        <Tile name='9p'/>
+        <span style={{width: '5rem', display: 'inline-block'}}>통수패</span>
+        <span style={{marginLeft: '1rem'}}>
+          <Tile name='1p'/>
+          <Tile name='2p'/>
+          <Tile name='3p'/>
+          <Tile name='4p'/>
+          <Tile name='5p'/>
+          <Tile name='6p'/>
+          <Tile name='7p'/>
+          <Tile name='8p'/>
+          <Tile name='9p'/>
+        </span>
       </div>
       <div>
-        <Tile name='1s'/>
-        <Tile name='2s'/>
-        <Tile name='3s'/>
-        <Tile name='4s'/>
-        <Tile name='5s'/>
-        <Tile name='6s'/>
-        <Tile name='7s'/>
-        <Tile name='8s'/>
-        <Tile name='9s'/>
+        <span style={{width: '5rem', display: 'inline-block'}}>삭수패</span>
+        <span style={{marginLeft: '1rem'}}>
+          <Tile name='1s'/>
+          <Tile name='2s'/>
+          <Tile name='3s'/>
+          <Tile name='4s'/>
+          <Tile name='5s'/>
+          <Tile name='6s'/>
+          <Tile name='7s'/>
+          <Tile name='8s'/>
+          <Tile name='9s'/>
+        </span>
       </div>
     </td>
     <td style={tileCategoryTdStyle}>
       <div>
-        <Tile name='1z'/>
-        <Tile name='2z'/>
-        <Tile name='3z'/>
-        <Tile name='4z'/>
+        <span style={{width: '5rem', display: 'inline-block'}}>풍패</span>
+        <span style={{marginLeft: '1rem'}}>
+          <Tile name='1z'/>
+          <Tile name='2z'/>
+          <Tile name='3z'/>
+          <Tile name='4z'/>
+        </span>
       </div>
       <div>
-        <Tile name='5z'/>
-        <Tile name='6z'/>
-        <Tile name='7z'/>
+        <span style={{width: '5rem', display: 'inline-block'}}>삼원패</span>
+        <span style={{marginLeft: '1rem'}}>
+          <Tile name='5z'/>
+          <Tile name='6z'/>
+          <Tile name='7z'/>
+        </span>
       </div>
     </td>
   </tr>
@@ -367,6 +483,21 @@ export const tileCategoryTdStyle = {
     <td style={tileCategoryTdStyle}>숫자가 없는 <Highlight>글자</Highlight> 패</td>
   </tr>
 </table>
+
+<Notes>
+
+마작에서 사용하는 패는 크게 두가지 종류로 나눌 수 있습니다.
+
+하나는 숫자를 의미하는 "수패", 
+다른 하나는 숫자가 없는 "자패"입니다.
+
+수패나 자패 안에서도 또 종류가 나눠지는데,
+수패에는 "만수패", "통수패", "삭수패"가 있고,
+자패에는 "풍패"와 "삼원패"가 있습니다.
+
+이제부터 하나씩 하나식 순서대로 살펴보면서 더 자세히 설명드리도록 하겠습니다.
+
+</Notes>
 
 ---
 
@@ -403,6 +534,19 @@ export const tileCategoryTdStyle = {
 - <Highlight>일만 만(<span className='hanja'>萬</span>)</Highlight>자가 그려져 있는 <Tooltip text="숫자가 있는 패">수패</Tooltip>
 - 한자로 숫자가 써있음
 
+<Notes>
+
+만수패는 일만 만자가 그려져 있는 수패입니다.
+왼쪽부터 순서대로 1만 2만 3만 4만 5만 6만 7만 8만 9만이라고 부릅니다.
+
+참고로 오른쪽에 있는 빨간색 5만 패가 있는데, 이것도 그냥 평범한 5만입니다.
+그냥 5만이랑 똑같습니다.
+
+각각의 숫자에 해당하는 한자가 새겨져 있으니, 한자를 보고 읽으시면 됩니다.
+한자에 익숙하지 않으시다면 어쩔 수 없습니다. 외우세요.
+
+</Notes>
+
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
@@ -437,6 +581,18 @@ export const tileCategoryTdStyle = {
 
 - <Highlight>동그란 문양</Highlight>이 그려져 있는 <Tooltip text="숫자가 있는 패">수패</Tooltip>
 - 문양의 갯수로 숫자를 나타냄
+
+<Notes>
+
+통수패는 동그란 문양이 그려져 있는 수패입니다.
+왼쪽부터 순서대로 1통 2통 3통 4통 5통 6통 7통 8통 9통이라고 부릅니다.
+
+만수패 5만과 동일하게 빨간색 5통이 있는데, 이것도 그냥 똑같은 5통입니다.
+
+통수패는 해당하는 숫자 만큼 동그란 문양이 그려져 있습니다. 어렵지 않죠?
+
+</Notes>
+
 
 ---
 
@@ -475,6 +631,22 @@ export const tileCategoryTdStyle = {
 - 1삭은 새 모양이지만 아무튼 삭수패임
 - 8삭도 아무튼 대나무 8개임
 
+<Notes>
+
+삭수패는 대나무 문양이 그려져 있는 수패입니다.
+왼쪽부터 순서대로 1삭 2삭 3삭 4삭 5삭 6삭 7삭 8삭 9삭이라고 부릅니다.
+
+이제는 아실 것 같은데, 빨간 5삭도 그냥 똑같은 5삭입니다.
+
+삭수패는 해당하는 숫자 만큼 대나무 문양이 그려져 있는데요,
+조금 특이하게 1삭의 경우에는 웬 새가 한마리 그려져 있습니다.
+새가 그려져 있는 패가 있다고 당황하지 마시고 그냥 1삭이라고 생각해주시면 됩니다.
+
+8삭의 경우도 대나무 8개처럼 보이지 않는다고 하시는 분들이 있는데,
+그냥 저렇게 생긴 패는 8삭이라고 생각해주세요.
+
+</Notes>
+
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 패의 종류</h2>
@@ -497,6 +669,21 @@ export const tileCategoryTdStyle = {
 
 - <Highlight>동남서북</Highlight>이 그려져 있는 <Tooltip text="숫자가 없는 글자 패">자패</Tooltip>
 - 바람의 방향을 나타낸다고 함
+- 순서 틀린거 아님
+
+<Notes>
+
+방금까지는 수패, 그러니까 만수패, 통수패, 삭수패에 대해 알아봤고요,
+이번에는 자패의 종류에 대해 알아봅시다.
+
+먼저 풍패는 한자로 동남서북이 그려져 있는 패입니다.
+
+바람의 방향을 나타낸다고 해서 풍패라고 부르고요,
+조금 특이한 점이 있다면, 부르는 순서가 "동서남북"이 아니고 "동남서북"순으로 부른다는 점입니다.
+
+일단은 순서까지는 외우지 않으셔도 괜찮습니다.
+
+</Notes>
 
 ---
 
@@ -516,8 +703,20 @@ export const tileCategoryTdStyle = {
   </tr>
 </table>
 
-- <Highlight>흰 백(<span className='hanja'>白</span>), 필 발(<span className='hanja'>發</span>) 가운데 중(<span className='hanja'>中</span>)</Highlight>이 그려져 있는 <Tooltip text="숫자가 없는 글자 패">자패</Tooltip>
-- 백패는 아무것도 안 그려져 있지만 아무튼 백패임
+- <Highlight>흰 백(<span className='hanja'>白</span>), 필 발(<span className='hanja'>發</span>), 가운데 중(<span className='hanja'>中</span>)</Highlight>이 그려져 있는 <Tooltip text="숫자가 없는 글자 패">자패</Tooltip>
+- 백은 아무것도 안 그려져 있지만 아무튼 백임
+
+<Notes>
+
+삼원패는 한자로 흰 백, 필 발, 가운데 중 자가 그려져 있는 패입니다.
+
+백패는 아무것도 안 그려져 있지만, 아무튼 백이라고 부릅니다.
+
+아무것도 안 그려져 있다고 뭔가 특수한 역할을 한다던가 그런건 아니고,
+그냥 일반적인 패니까 오해하지 마세요.
+
+</Notes>
+
 
 ---
 
@@ -546,12 +745,25 @@ export const tileCategoryTdStyle = {
 
 <Emote name='gooood'/>
 
+<Notes>
+
+방금까지 자패의 종류, 그러니까 풍패와 삼원패에 대해 배웠습니다.
+
+아까 배운 만수패, 통수패, 삭수패, 그리고 방금 배운 풍패, 삼원패가 마작에서 사용하는 패의 전부입니다.
+
+이 패들은 각각 동일한 패를 4장씩 사용하게 되어, 총 136장의 패로 게임을 진행하게 됩니다.
+
+이제 마작에서 사용하는 패의 종류는 모두 배웠습니다.
+이제 진짜로 손패를 완성하는 법에 대해 알아봅시다.
+
+</Notes>
+
 ---
 
 ## 화료 하는 법 - 손패 완성하기
 
 <p>
-  마작은 손패로 용 한마리를 만드는 게임<br/>
+  기본적으로 마작은 손패로 용 한마리를 만드는 게임<br/>
   <Highlight>머리 파츠 하나</Highlight>랑 <Highlight>몸통 파츠 4개</Highlight> 모으면 용 완성!
 </p>
 
@@ -608,6 +820,18 @@ export const tileCollectionTdStyle = {
 ...근데 <Highlight>머리</Highlight>가 뭐야? <Highlight>몸통</Highlight>은 또 뭐야?
 
 <Emote name='what'/>
+
+<Notes>
+
+마작은 기본적으로 손패로 용 한마리를 만드는 게임입니다.
+그리고 용을 만드려면 머리 파츠 하나랑 몸통 파츠 4개가 필요합니다.
+그러니까 머리에 해당하는 패들을 하나 모으고, 몸통에 해당하는 패들을 4개 모으면 된다는거죠.
+
+(예시를 가르키며) 여기 있는게 완성된 용 한마리의 예시입니다.
+사실 아무 설명 없이 이게 머리다, 이게 몸통이다 라고 말씀을 드려도 잘 모르실테니까
+각각 더 자세하게 설명드리겠습니다. 
+
+</Notes>
 
 ---
 
@@ -667,6 +891,18 @@ export const tileCollectionTdStyle = {
 
 <Emote name='v'/>
 
+<Notes>
+
+머리는 같은 패 2장을 모으면 그걸 마작에서 머리라고 부릅니다.
+
+여기 이렇게 예시가 몇가지 있는데, 왼쪽에 있는 것처럼 동일한 패 2장씩을 모으면 머리가 됩니다.
+
+(5통을 가르키며) 이건 좀 헷갈릴 수도 있는데, 이 5통은 색이 다르지만 아까 말씀드렸다시피 완전히 동일한 5통이기 때문에 이것도 머리가 맞습니다.
+
+오른쪽에 있는건 잘못된 예시인데, 같은 종류라도 숫자가 다르면 안되고, 같은 숫자라도 종류가 다르면 머리가 아닙니다.
+
+</Notes>
+
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
@@ -700,6 +936,21 @@ export const tileCollectionTdStyle = {
 ...<Highlight>커쯔</Highlight>랑 <Highlight>슌쯔</Highlight>가 뭐냐구!!!
 
 <Emote name='flip'/>
+
+<Notes>
+
+다음으로 몸통에 대해 설명을 드릴건데, 몸통은 두가지 종류로 만들 수 있습니다.
+
+하나는 커쯔라고 부르는 몸통이고, 다른 하나는 슌쯔라고 부르는 몸통입니다.
+
+용어가 굉장히 생소하실텐데, 커쯔랑 슌쯔라는 용어는 아주 기본적인 용어이기 때문에 외워두시는게 좋습니다.
+
+몸통은 커쯔나 슌쯔 둘중에 아무거나 하나로 만드시면 됩니다.
+
+커쯔랑 슌쯔가 뭔지는 더 자세하게 설명드릴게요.
+
+</Notes>
+
 
 ---
 
@@ -746,6 +997,11 @@ export const tileCollectionTdStyle = {
       <Tile name='9s'/>
     </td>
     <td style={tileCollectionTdStyle}>
+      <Tile name='4m'/>
+      <Tile name='4p'/>
+      <Tile name='4s'/>
+    </td>
+    <td style={tileCollectionTdStyle}>
       <Tile name='5z'/>
       <Tile name='6z'/>
       <Tile name='6z'/>
@@ -758,8 +1014,23 @@ export const tileCollectionTdStyle = {
     <td style={tileCollectionTdStyle}>
       <strong style={{color: badColor}}>너도 아냐!</strong>
     </td>
+    <td style={tileCollectionTdStyle}>
+      <strong style={{color: badColor}}>아니라구!</strong>
+    </td>
   </tr>
 </table>
+
+<Notes>
+
+먼저 커쯔는 머리랑 비슷하게 같은 패 3장을 모으면 커쯔라고 합니다.
+
+여기 위쪽에 있는 예시가 올바른 커쯔의 예시인데요,
+머리 설명에서도 말씀드렸지만 빨간색 5통도 똑같은 5통이다 정도만 주의하시면 될것같습니다.
+
+아래쪽에 있는건 잘못된 예시인데, 당연히 종류가 같더라도 숫자가 다르다던가,
+숫자가 같더라도 종류가 다르면 커쯔가 아닙니다.
+
+</Notes>
 
 ---
 
@@ -829,6 +1100,22 @@ export const tileCollectionTdStyle = {
   </tr>
 </table>
 
+<Notes>
+
+슌쯔는 같은 종류의 수패를 연속된 숫자로 3장을 모으면 슌쯔라고 부릅니다.
+
+조금 복잡하게 들릴수 있는데, 아래 예시를 보시면 바로 이해하실 수 있을겁니다.
+
+(예시를 가르키며)여기 있는 것처럼 만수패로 연속된 123, 통수패로 연속된 789, 삭수패로 연속된 456같이 이렇게 모으시면 됩니다.
+
+조심하셔야 할건 891처럼 연속되지 않은 수를 모으면 슌쯔가 아니라는 점입니다.
+
+그리고 수패가 아닌 자패로는 슌쯔를 만드실 수 없으니 조심하세요.
+
+당연한 얘기지만, 서로 종류가 다른 수패로 123을 만들어도 슌쯔가 아닙니다.
+
+</Notes>
+
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 손패 완성하기</h2>
@@ -887,6 +1174,20 @@ export const tileCollectionTdStyle = {
 <h3 style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}><Highlight>한장</Highlight>이 모자라!</h3>
 
 <Emote name='shocked'/>
+
+<Notes>
+
+자 그럼 머리가 뭔지도 배웠고, 몸통도 슌쯔랑 커쯔로 만들 수 있다고 배웠으니까, 이제 머리 하나랑 몸통 4개만 손패 13장으로 만들면 끝이겠네요?
+
+(예시를 가르키며) 여기 이제 머리 하나랑 슌쯔 두개, 커쯔 두개로 완성된 손패를 예시로 만들어놨습니다.
+
+그런데 뭔가 이상하지 않나요?
+
+우리가 손패는 13장이라고 설명을 했는데, 손패를 완성하려면 총 14장이 필요합니다.
+
+한장이 모자르다는 말인데 그럼 어떻게 해야할까요?
+
+</Notes>
 
 ---
 
@@ -982,6 +1283,25 @@ export const tileCollectionTdStyle = {
   </tr>
 </table>
 
+<Notes>
+
+우리가 13장의 손패를 잘 모으면, 앞으로 패 딱 한장만 더 있으면 완성할수 있는 상태가 될거에요.
+
+마작에서는 이런 상태를 텐파이 라고 부릅니다.
+
+그리고 텐파이 상태가 되면, 마지막 14번째 패는 자기 차례에 패산에서 뽑아오거나, 다른 사람이 버린패를 이용해서 완성하고 화료할 수 있습니다.
+
+자기 차례에 패산에서 뽑아와서 화료하면 쯔모했다고 말하고,
+다른 사람이 내가 필요한 마지막 패 한장을 버려서 화료하게 되면 론 했다고 말합니다.
+
+자, 여기 있는 패가 텐파이 한 패의 예시입니다.
+
+머리 하나랑 몸통 세개가 완성이 된 상태고, 3통이나 6통이 있으면 마지막 슌쯔 몸통이 완성되어 화료할 수 있는거죠.
+
+만약 내 차례애 내가 3통이나 6통을 뽑아오면 쯔모 화료할 수 있고, 다른 사람이 3통이나 6통을 버리면 론 화료할 수 있는거에요.
+
+</Notes>
+
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
@@ -1076,6 +1396,18 @@ export const tileCollectionTdStyle = {
   </tr>
 </table>
 
+<Notes>
+
+자 이건 다른 예시인데, 이미 몸통 3개가 완성이 된 상태고,
+머리가 두개가 있어요.
+
+이런 경우에는 두 머리중에 하나가 한장이 더 있으면
+커쯔가 되서 화료할 수 있기 때문에 텐파이 상태입니다.
+
+여기서는 7만이나 발이 한장 더 있으면 되겠네요.
+
+</Notes>
+
 ---
 
 <h2 style={{marginBottom: '0.5rem'}}>화료 하는 법 - 텐파이와 리치</h2>
@@ -1091,6 +1423,24 @@ export const tileCollectionTdStyle = {
   아주 간단한 역이자, 리치 마작의 꽃인<br/>
   <Highlight>"리치"</Highlight>를 하면 <Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip> 가능!
 </p>
+
+<Notes>
+
+그러면 이제 텐파이를 했으면 바로 원하는 패가 나오면 화료할 수 있을까요?
+
+앞에서 한번 말씀드리긴 했는데 아마 까먹셨을 거에요.
+마작에서는 화료하려면 역이라는게 있어야 합니다.
+
+손패를 완성하는 것은 화료하기 위한 가장 기본적인 조건이고,
+이렇게 완성한 손패가 특정한 역을 만족해야 화료할 수 있다는거죠.
+
+근데, 마작의 역이라는게 생각보다 좀 많이 복잡합니다.
+그래서 저는 여러분들께 아주아주 간단한 역이자
+리치 마작의 꽃이라고 불리는 "리치"라고 하는 역을 가르쳐드릴거에요.
+
+이 "리치"라고 하는 역만 만들 수 있으면 처음 마작을 입문하시는 분들에게는 충분합니다.
+
+</Notes>
 
 ---
 
@@ -1113,6 +1463,32 @@ export const tileCollectionTdStyle = {
   패산에서 뽑은 패로 <Highlight><Tooltip text="역을 완성하여 승리하는 것">화료</Tooltip>할 수 없으면 그 패를 그대로 버림</Highlight>
 </p>
 
+<Notes>
+
+그럼 리치라는 역은 어떻게 하면 달성할 수 있을까요?
+
+아주 간단합니다. 내 차례에 텐파이가 됬을 경우
+"리치"라고 선언하면서 패를 버리면 끝이에요.
+
+대부분의 마작 게임에서는 리치를 선언할 수 있을 때,
+"리치"라고 쓰여있는 버튼이 화면에 나오게 됩니다.
+
+그럼 그 버튼을 누르고 필요없는 패 한장을 버리시면 끝이에요.
+
+사실은 조금 더 복잡한 규칙이 있긴 하지만, 우리는 몰라도 괜찮습니다.
+왜냐면 컴퓨터가 다 알아서 해줄겁니다.
+
+대신 이거 하나만 주의하시면 됩니다.
+리치 선언을 하면 더 이상 손패를 바꿀 수 없습니다.
+
+즉, 내가 화료할 수 있는 패가 나오지 않는다면,
+내 차례에 뽑은 패를 그대로 바닥에 버려야합니다.
+
+지금 여기 보이는 게 "작혼"이라는 마작 게임에서 실제로 리치를 하는 장면입니다.
+리치 버튼을 누르고 필요 없는 패를 클릭해서 버리는거죠.
+
+</Notes>
+
 ---
 
 ## 리치를 했으면?
@@ -1128,6 +1504,18 @@ export const tileCollectionTdStyle = {
 </p>
 
 <Emote name='ready'/>
+
+<Notes>
+
+리치를 한 다음에는 그럼 뭘 해야 할까요?
+
+아주 쉽죠. 론 또는 쯔모 라고 써 있는 버튼이 화면에 나오면 누르시면 됩니다.
+그럼 그 국에서 승리하신거고, 다른 사람에게서 점수를 뺏어오게 될겁니다.
+
+특히 리치를 했으면 더이상 패를 바꿀 수 없기 때문에
+사실상 그냥 기다리는 패가 나올때까지 기도하세요.
+
+</Notes>
 
 ---
 
@@ -1150,6 +1538,30 @@ export const tileCollectionTdStyle = {
   - <strong>2부 내용도 이어서 봐주세요! 제발!</strong>
 </p>
 
+<Notes>
+
+여기까지 배우셨다면 일단 마작을 직접 해볼 수는 있을 정도로 배우신겁니다. 축하합니다!
+
+혹시 같이 마작을 하려고 기다리고 있는 친구가 있다면, 지금부터는 같이 플레이하셔도 됩니다.
+
+하지만, 제발, 시간이 있으시다면 지금부터 설명드리는 2부 내용도 이어서 봐주시기 바랍니다.
+
+2부 내용이라고 몰라도 되는 내용이 절대 아닙니다.
+마작을 하려면 꼭 알아야 하는 중요한 것들을 설명드릴거기 때문에 꼭 들어주셔야 해요.
+
+하지만 어쩔 수 없이, 2부 내용을 볼 시간이 도저히 없다면 이거 하나만 더 기억해주세요.
+
+절대, 절대로 리치, 쯔모, 론 이외의 다른 버튼은 누르지 마시고 넘겨주세요.
+제가 이렇게 말씀드리는 이유는 2부 내용을 보시면 알 수 있습니다.
+
+그리고 마작 게임을 뭘 해야할지 모르겠다고 생각하시는 분에게는 저는 "작혼"이라는 마작 게임을 추천드려요.
+
+설치 없이 웹 브라우저에서 바로 마작을 즐기실 수도 있고, 유저가 만든 한글 패치가 있어서 입문하시는 분들이 언어의 장벽 없이 게임을 즐기실 수 있어서 좋습니다.
+
+그리고 다른 마작게임과는 달리 귀여운 캐릭터들이 나오는 게임이라서 눈도 즐겁습니다.
+지금 이 튜토리얼에서 사용한 이런 스티커들도 다 작혼에서 나오는 캐릭터들입니다.
+
+</Notes>
 
 ---
 
