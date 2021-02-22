@@ -112,3 +112,21 @@ body {
         font-size: 1.5vw;
     }
 }
+
+.desktop-title {
+    display: initial;
+}
+
+.mobile-title {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-title {
+        display: none;
+    }
+
+    .mobile-title {
+        display: initial;
+    }
+}

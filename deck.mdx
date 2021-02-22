@@ -45,6 +45,9 @@ export const theme = {
     ul: {
       paddingInlineStart: '0'
     },
+    ol: {
+      paddingInlineStart: '0'
+    },
     li: {
       listStyle: 'none',
     },
@@ -95,32 +98,47 @@ export const Tile = ({name, ...props}) => (
 
 <!-- 여기서부터 내용 시작 -->
 
-<h2 style={{marginBottom: '0.5rem'}}>지금 <Highlight>당장</Highlight> 마작을 해보고 싶은 당신을 위한</h2>
-<h1 style={{marginTop: '0.5rem'}}>초간단 리치 마작 튜토리얼</h1>
+<div className="desktop-title">
+  <h2 style={{marginBottom: '0.5rem'}}>지금 <Highlight>당장</Highlight> 마작을 해보고 싶은 당신을 위한</h2>
+  <h1 style={{marginTop: '0.5rem'}}>초간단 리치 마작 튜토리얼</h1>
 
-<Emote name='aha'/>
+  <Emote name='aha'/>
 
-<!-- 오른쪽 방향키를 눌러주세요 -->
+  오른쪽 방향키를 눌러주세요
 
-<p style={{
-  fontSize: '1.2rem',
-  textAlign: 'right'
-  }}>
-  2021년에 <a style={{
-      color: twitchColor,
-    }}
-    target='_blank'
-    href='https://www.twitch.tv/sleeping_ce'>
-    <IconBrandTwitch
-      size={24}
-      color={twitchColor}
-      stroke={1.5}
-      style={{
-        marginRight: '0.1rem',
+  <p style={{
+    fontSize: '1.2rem',
+    }}>
+    2021년에 <a style={{
+        color: twitchColor,
       }}
-    />잠자는꼬마선충
-  </a>이 친구들을 위해 만듬
-</p>
+      target='_blank'
+      href='https://www.twitch.tv/sleeping_ce'>
+      <IconBrandTwitch
+        size={24}
+        color={twitchColor}
+        stroke={1.5}
+        style={{
+          marginRight: '0.1rem',
+        }}
+      />잠자는꼬마선충
+    </a>이 친구들을 위해 만듬
+  </p>
+</div>
+
+<div className="mobile-title">
+  <h2 style={{marginBottom: '1rem'}}><Highlight>앗!</Highlight> 이 슬라이드는 모바일 환경에서는 볼 수 없어요!</h2>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/LEdYxKOaodg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style={{
+    border: "0.2rem solid " + blackColor,
+    borderRadius: '1rem',
+    maxWidth: '100%',
+  }}></iframe>
+
+  <h3>대신 동영상 버전을 확인해주세요!</h3>
+</div>
+
+
 
 <Notes>
 
