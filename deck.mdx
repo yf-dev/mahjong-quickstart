@@ -13,6 +13,7 @@ import {
 
 export const whiteColor = '#ffffff';
 export const blackColor = '#000000';
+export const grayColor = '#999999';
 export const backgroundColor = whiteColor;
 export const textColor = blackColor;
 export const twitchColor = '#9146ff';
@@ -105,6 +106,13 @@ export const Tile = ({name, ...props}) => (
   <Emote name='aha'/>
 
   키보드 오른쪽 방향키를 눌러주세요
+
+  <p style={{
+    fontSize: '1.2rem',
+    color: grayColor,
+    }}>
+    (Alt+P를 누르면 발표자 모드로 전환됩니다)
+  </p>
 
   <p style={{
     fontSize: '1.2rem',
