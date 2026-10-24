@@ -1,0 +1,21 @@
+Package: http-proxy-middleware@0.19.1
+Advisories: GHSA-c7qv-q95q-8v27
+Scope: develop only (webpack-dev-server)
+Why: Treat context matcher URL parse failures as no-match instead of crashing.
+
+diff -ruN a/lib/index.js b/lib/index.js
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -84,7 +84,11 @@
+    */
+   function shouldProxy(context, req) {
+     var path = req.originalUrl || req.url
+-    return contextMatcher.match(context, path, req)
++    try {
++      return contextMatcher.match(context, path, req)
++    } catch (err) {
++      return false
++    }
+   }
+ 
+   /**

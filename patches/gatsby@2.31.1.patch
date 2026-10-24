@@ -1,0 +1,17 @@
+Package: gatsby@2.31.1
+Advisories: none (compatibility shim)
+Scope: develop only (gatsby develop)
+Why: package.json resolves tmp to 0.2.7 for GHSA-52f5-9888-hmc6; tmp >= 0.2.4 realpaths tmpdir, which fails because mdx-deck deletes .cache (gatsby clean) right before develop.
+
+diff -ruN a/dist/commands/develop.js b/dist/commands/develop.js
+--- a/dist/commands/develop.js
++++ b/dist/commands/develop.js
+@@ -102,6 +102,8 @@
+   start() {
+     const args = [];
+ 
++    // tmp >= 0.2.4 realpaths tmpdir; mdx-deck runs `gatsby clean` first, so create it.
++    _fsExtra.default.ensureDirSync(_path.default.join(process.cwd(), `.cache`));
+     const tmpFileName = _tmp.default.tmpNameSync({
+       tmpdir: _path.default.join(process.cwd(), `.cache`)
+     });

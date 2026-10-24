@@ -1,0 +1,55 @@
+Package: dicer@0.3.0
+Advisories: GHSA-wm7h-9275-46v2
+Scope: tooling (graphql-upload/busboy under graphql-config url-loader; no untrusted multipart input here)
+Why: Backport upstream b7fca2e: ignore a folded header line before any header name instead of crashing.
+
+diff -ruN a/lib/HeaderParser.js b/lib/HeaderParser.js
+--- a/lib/HeaderParser.js
++++ b/lib/HeaderParser.js
+@@ -82,26 +82,28 @@
+       // folded header content
+       // RFC2822 says to just remove the CRLF and not the whitespace following
+       // it, so we follow the RFC and include the leading whitespace ...
+-      this.header[h][this.header[h].length - 1] += lines[i];
+-    } else {
+-      m = RE_HDR.exec(lines[i]);
+-      if (m) {
+-        h = m[1].toLowerCase();
+-        if (m[2]) {
+-          if (this.header[h] === undefined)
+-            this.header[h] = [m[2]];
+-          else
+-            this.header[h].push(m[2]);
+-        } else
+-          this.header[h] = [''];
+-        if (++this.npairs === this.maxHeaderPairs)
+-          break;
+-      } else {
+-        this.buffer = lines[i];
+-        modded = true;
+-        break;
++      if (h) {
++        this.header[h][this.header[h].length - 1] += lines[i];
++        continue;
+       }
+     }
++    m = RE_HDR.exec(lines[i]);
++    if (m) {
++      h = m[1].toLowerCase();
++      if (m[2]) {
++        if (this.header[h] === undefined)
++          this.header[h] = [m[2]];
++        else
++          this.header[h].push(m[2]);
++      } else
++        this.header[h] = [''];
++      if (++this.npairs === this.maxHeaderPairs)
++        break;
++    } else {
++      this.buffer = lines[i];
++      modded = true;
++      break;
++    }
+   }
+   if (!modded)
+     this.buffer = '';

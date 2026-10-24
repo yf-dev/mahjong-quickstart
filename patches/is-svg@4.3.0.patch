@@ -1,0 +1,24 @@
+Package: is-svg@4.3.0
+Advisories: none (compatibility shim)
+Scope: build (cssnano/postcss-svgo)
+Why: package.json resolves fast-xml-parser to 5.x; port is-svg to its XMLParser/XMLValidator API and drop the upstream debug console.log.
+
+diff -ruN a/index.js b/index.js
+--- a/index.js
++++ b/index.js
+@@ -1,5 +1,6 @@
+ 'use strict';
+-const parser = require('fast-xml-parser');
++const {XMLParser, XMLValidator} = require('fast-xml-parser');
++const parser = {validate: input => XMLValidator.validate(input), parse: input => new XMLParser().parse(input)};
+ 
+ const isSvg = input => {
+ 	if (input === undefined || input === null) {
+@@ -13,7 +14,6 @@
+ 	}
+ 
+ 	// Has to be `!==` as it can also return an object with error info.
+-	console.log('a', parser.validate(input));
+ 	if (parser.validate(input) !== true) {
+ 		return false;
+ 	}

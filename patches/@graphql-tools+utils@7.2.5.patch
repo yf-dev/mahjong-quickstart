@@ -1,0 +1,61 @@
+Package: @graphql-tools/utils@7.2.5
+Advisories: GHSA-7mx3-vvmw-hjmv
+Scope: CLI tooling (gatsby-recipes, graphql-config)
+Why: Backport upstream mergeDeep key guards and own-property recursion (prototype pollution).
+
+diff -ruN a/es5/index.cjs.js b/es5/index.cjs.js
+--- a/es5/index.cjs.js
++++ b/es5/index.cjs.js
+@@ -3550,8 +3550,9 @@
+             var source = sources_1_1.value;
+             if (isObject(target) && isObject(source)) {
+                 for (var key in source) {
++                if (!Object.prototype.hasOwnProperty.call(source, key) || key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
+                     if (isObject(source[key])) {
+-                        if (!(key in target)) {
++                        if (!Object.prototype.hasOwnProperty.call(target, key)) {
+                             Object.assign(output, (_b = {}, _b[key] = source[key], _b));
+                         }
+                         else {
+diff -ruN a/es5/index.esm.js b/es5/index.esm.js
+--- a/es5/index.esm.js
++++ b/es5/index.esm.js
+@@ -3546,8 +3546,9 @@
+             var source = sources_1_1.value;
+             if (isObject(target) && isObject(source)) {
+                 for (var key in source) {
++                if (!Object.prototype.hasOwnProperty.call(source, key) || key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
+                     if (isObject(source[key])) {
+-                        if (!(key in target)) {
++                        if (!Object.prototype.hasOwnProperty.call(target, key)) {
+                             Object.assign(output, (_b = {}, _b[key] = source[key], _b));
+                         }
+                         else {
+diff -ruN a/index.cjs.js b/index.cjs.js
+--- a/index.cjs.js
++++ b/index.cjs.js
+@@ -3415,8 +3415,9 @@
+     for (const source of sources) {
+         if (isObject(target) && isObject(source)) {
+             for (const key in source) {
++                if (!Object.prototype.hasOwnProperty.call(source, key) || key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
+                 if (isObject(source[key])) {
+-                    if (!(key in target)) {
++                    if (!Object.prototype.hasOwnProperty.call(target, key)) {
+                         Object.assign(output, { [key]: source[key] });
+                     }
+                     else {
+diff -ruN a/index.esm.js b/index.esm.js
+--- a/index.esm.js
++++ b/index.esm.js
+@@ -3411,8 +3411,9 @@
+     for (const source of sources) {
+         if (isObject(target) && isObject(source)) {
+             for (const key in source) {
++                if (!Object.prototype.hasOwnProperty.call(source, key) || key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
+                 if (isObject(source[key])) {
+-                    if (!(key in target)) {
++                    if (!Object.prototype.hasOwnProperty.call(target, key)) {
+                         Object.assign(output, { [key]: source[key] });
+                     }
+                     else {

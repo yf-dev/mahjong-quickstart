@@ -1,0 +1,16 @@
+Package: nth-check@2.1.1
+Advisories: none (compatibility shim)
+Scope: build/CLI (renderkid/pretty-error css-select 2)
+Why: package.json resolves nth-check to 2.1.1 for GHSA-rp65-9cf3-cjxr; restore the callable v1 CommonJS export css-select 2 expects.
+
+diff -ruN a/lib/index.js b/lib/index.js
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -67,4 +67,6 @@
+     return (0, compile_js_1.generate)((0, parse_js_1.parse)(formula));
+ }
+ exports.sequence = sequence;
++// Preserve the callable v1 CommonJS API for css-select 1/2.
++module.exports = Object.assign(nthCheck, exports);
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file

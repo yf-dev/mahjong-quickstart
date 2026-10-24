@@ -1,0 +1,26 @@
+Package: postcss@6.0.23
+Advisories: GHSA-6g55-p6wh-862q GHSA-r28c-9q8g-f849 GHSA-fxqj-rqcc-2cmp
+Scope: build (css-loader, postcss-modules-*)
+Why: Never auto-load external source maps named by sourceMappingURL comments; explicit and inline maps still work.
+
+diff -ruN a/lib/previous-map.js b/lib/previous-map.js
+--- a/lib/previous-map.js
++++ b/lib/previous-map.js
+@@ -145,15 +145,8 @@
+         } else if (this.inline) {
+             return this.decodeInline(this.annotation);
+         } else if (this.annotation) {
+-            var map = this.annotation;
+-            if (file) map = _path2.default.join(_path2.default.dirname(file), map);
+-
+-            this.root = _path2.default.dirname(map);
+-            if (_fs2.default.existsSync && _fs2.default.existsSync(map)) {
+-                return _fs2.default.readFileSync(map, 'utf-8').toString().trim();
+-            } else {
+-                return false;
+-            }
++      // CSS comments must never cause implicit filesystem reads.
++      return false;
+         }
+     };
+ 

@@ -1,0 +1,54 @@
+Package: braces@2.3.2
+Advisories: GHSA-grv7-fg5c-xmjg
+Scope: build/develop (micromatch 3, chokidar 2, webpack-dev-server)
+Why: Bound input length and brace nesting before the legacy parser; v2 API unchanged.
+
+diff -ruN a/index.js b/index.js
+--- a/index.js
++++ b/index.js
+@@ -118,6 +118,13 @@
+     throw new TypeError('expected a string');
+   }
+ 
++  // Bound hostile unbalanced/nested input before the legacy parser.
++  if (pattern.length > 65536) throw new RangeError('Brace pattern exceeds security limit');
++  var depth = 0;
++  for (var securityIndex = 0; securityIndex < pattern.length; securityIndex++) {
++    if (pattern[securityIndex] === '{' && ++depth > 128) throw new RangeError('Brace nesting exceeds security limit');
++    if (pattern[securityIndex] === '}') depth = Math.max(0, depth - 1);
++  }
+   var maxLength = (options && options.maxLength) || MAX_LENGTH;
+   if (pattern.length >= maxLength) {
+     throw new Error('expected pattern to be less than ' + maxLength + ' characters');
+@@ -185,6 +192,13 @@
+     throw new TypeError('expected a string');
+   }
+ 
++  // Bound hostile unbalanced/nested input before the legacy parser.
++  if (pattern.length > 65536) throw new RangeError('Brace pattern exceeds security limit');
++  var depth = 0;
++  for (var securityIndex = 0; securityIndex < pattern.length; securityIndex++) {
++    if (pattern[securityIndex] === '{' && ++depth > 128) throw new RangeError('Brace nesting exceeds security limit');
++    if (pattern[securityIndex] === '}') depth = Math.max(0, depth - 1);
++  }
+   var maxLength = (options && options.maxLength) || MAX_LENGTH;
+   if (pattern.length >= maxLength) {
+     throw new Error('expected pattern to be less than ' + maxLength + ' characters');
+diff -ruN a/lib/braces.js b/lib/braces.js
+--- a/lib/braces.js
++++ b/lib/braces.js
+@@ -61,6 +61,14 @@
+  */
+ 
+ Braces.prototype.parse = function(ast, options) {
++  if (typeof ast === 'string') {
++    if (ast.length > 65536) throw new RangeError('Brace pattern exceeds security limit');
++    var depth = 0;
++    for (var i = 0; i < ast.length; i++) {
++      if (ast[i] === '{' && ++depth > 128) throw new RangeError('Brace nesting exceeds security limit');
++      if (ast[i] === '}') depth = Math.max(0, depth - 1);
++    }
++  }
+   if (ast && typeof ast === 'object' && ast.nodes) return ast;
+   this.init(options);
+   return this.snapdragon.parse(ast, options);
